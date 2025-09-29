@@ -219,6 +219,7 @@ void edit_contact(AddressBook *adBook) {
     }
 }
 
+
 // 清空联系人
 void empty_contacts(struct AddressBook *adBook) {
     string confirm;
