@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AA60D3A22E8A9D3D00965453 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		AA60D3AD2E8AA32000965453 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		AA60D3B82E8AA63C00965453 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AAB1E6FC2E83ED070027A035 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,12 +64,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA60D3A42E8A9D3D00965453 /* 04-全局区（内存） */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "04-全局区（内存）"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA60D3AF2E8AA32000965453 /* 05-栈区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "05-栈区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA60D3BA2E8AA63C00965453 /* 06-堆区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "06-堆区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB1E6FE2E83ED070027A035 /* LearnCPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCPP; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DEF2E89250100410354 /* 02-通讯录管理系统 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-通讯录管理系统"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DFA2E89508A00410354 /* 03-对象 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "03-对象"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA60D3A52E8A9D3D00965453 /* 04-全局区（内存） */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "04-全局区（内存）";
+			sourceTree = "<group>";
+		};
+		AA60D3B02E8AA32000965453 /* 05-栈区内存 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "05-栈区内存";
+			sourceTree = "<group>";
+		};
+		AA60D3BB2E8AA63C00965453 /* 06-堆区内存 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "06-堆区内存";
+			sourceTree = "<group>";
+		};
 		AAB1E7002E83ED070027A035 /* LearnCPP */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LearnCPP;
@@ -61,6 +106,27 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AA60D3A12E8A9D3D00965453 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA60D3AC2E8AA32000965453 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA60D3B72E8AA63C00965453 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAB1E6FB2E83ED070027A035 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,6 +157,9 @@
 				AAB1E7002E83ED070027A035 /* LearnCPP */,
 				AAF75DF02E89250100410354 /* 02-通讯录管理系统 */,
 				AAF75DFB2E89508A00410354 /* 03-对象 */,
+				AA60D3A52E8A9D3D00965453 /* 04-全局区（内存） */,
+				AA60D3B02E8AA32000965453 /* 05-栈区内存 */,
+				AA60D3BB2E8AA63C00965453 /* 06-堆区内存 */,
 				AAB1E6FF2E83ED070027A035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +170,9 @@
 				AAB1E6FE2E83ED070027A035 /* LearnCPP */,
 				AAF75DEF2E89250100410354 /* 02-通讯录管理系统 */,
 				AAF75DFA2E89508A00410354 /* 03-对象 */,
+				AA60D3A42E8A9D3D00965453 /* 04-全局区（内存） */,
+				AA60D3AF2E8AA32000965453 /* 05-栈区内存 */,
+				AA60D3BA2E8AA63C00965453 /* 06-堆区内存 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +180,72 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AA60D3A32E8A9D3D00965453 /* 04-全局区（内存） */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA60D3AA2E8A9D3D00965453 /* Build configuration list for PBXNativeTarget "04-全局区（内存）" */;
+			buildPhases = (
+				AA60D3A02E8A9D3D00965453 /* Sources */,
+				AA60D3A12E8A9D3D00965453 /* Frameworks */,
+				AA60D3A22E8A9D3D00965453 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA60D3A52E8A9D3D00965453 /* 04-全局区（内存） */,
+			);
+			name = "04-全局区（内存）";
+			packageProductDependencies = (
+			);
+			productName = "04-全局区（内存）";
+			productReference = AA60D3A42E8A9D3D00965453 /* 04-全局区（内存） */;
+			productType = "com.apple.product-type.tool";
+		};
+		AA60D3AE2E8AA32000965453 /* 05-栈区内存 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA60D3B32E8AA32000965453 /* Build configuration list for PBXNativeTarget "05-栈区内存" */;
+			buildPhases = (
+				AA60D3AB2E8AA32000965453 /* Sources */,
+				AA60D3AC2E8AA32000965453 /* Frameworks */,
+				AA60D3AD2E8AA32000965453 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA60D3B02E8AA32000965453 /* 05-栈区内存 */,
+			);
+			name = "05-栈区内存";
+			packageProductDependencies = (
+			);
+			productName = "05-栈区内存";
+			productReference = AA60D3AF2E8AA32000965453 /* 05-栈区内存 */;
+			productType = "com.apple.product-type.tool";
+		};
+		AA60D3B92E8AA63C00965453 /* 06-堆区内存 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA60D3BE2E8AA63C00965453 /* Build configuration list for PBXNativeTarget "06-堆区内存" */;
+			buildPhases = (
+				AA60D3B62E8AA63C00965453 /* Sources */,
+				AA60D3B72E8AA63C00965453 /* Frameworks */,
+				AA60D3B82E8AA63C00965453 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA60D3BB2E8AA63C00965453 /* 06-堆区内存 */,
+			);
+			name = "06-堆区内存";
+			packageProductDependencies = (
+			);
+			productName = "06-堆区内存";
+			productReference = AA60D3BA2E8AA63C00965453 /* 06-堆区内存 */;
+			productType = "com.apple.product-type.tool";
+		};
 		AAB1E6FD2E83ED070027A035 /* LearnCPP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAB1E7052E83ED070027A035 /* Build configuration list for PBXNativeTarget "LearnCPP" */;
@@ -183,6 +321,15 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					AA60D3A32E8A9D3D00965453 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					AA60D3AE2E8AA32000965453 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					AA60D3B92E8AA63C00965453 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					AAB1E6FD2E83ED070027A035 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -211,11 +358,35 @@
 				AAB1E6FD2E83ED070027A035 /* LearnCPP */,
 				AAF75DEE2E89250100410354 /* 02-通讯录管理系统 */,
 				AAF75DF92E89508A00410354 /* 03-对象 */,
+				AA60D3A32E8A9D3D00965453 /* 04-全局区（内存） */,
+				AA60D3AE2E8AA32000965453 /* 05-栈区内存 */,
+				AA60D3B92E8AA63C00965453 /* 06-堆区内存 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AA60D3A02E8A9D3D00965453 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA60D3AB2E8AA32000965453 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA60D3B62E8AA63C00965453 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAB1E6FA2E83ED070027A035 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,6 +411,66 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		AA60D3A82E8A9D3D00965453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA60D3A92E8A9D3D00965453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA60D3B42E8AA32000965453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA60D3B52E8AA32000965453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA60D3BF2E8AA63C00965453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA60D3C02E8AA63C00965453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		AAB1E7032E83ED070027A035 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -420,6 +651,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AA60D3AA2E8A9D3D00965453 /* Build configuration list for PBXNativeTarget "04-全局区（内存）" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA60D3A82E8A9D3D00965453 /* Debug */,
+				AA60D3A92E8A9D3D00965453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA60D3B32E8AA32000965453 /* Build configuration list for PBXNativeTarget "05-栈区内存" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA60D3B42E8AA32000965453 /* Debug */,
+				AA60D3B52E8AA32000965453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA60D3BE2E8AA63C00965453 /* Build configuration list for PBXNativeTarget "06-堆区内存" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA60D3BF2E8AA63C00965453 /* Debug */,
+				AA60D3C02E8AA63C00965453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AAB1E6F92E83ED070027A035 /* Build configuration list for PBXProject "LearnCPP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
