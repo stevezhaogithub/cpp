@@ -43,6 +43,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AA4475CC2E8BC43100E67CDC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AA60D3A22E8A9D3D00965453 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,6 +113,7 @@
 		AA4475AD2E8B851400E67CDC /* 08-引用02 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "08-引用02"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4475B82E8B8ACA00E67CDC /* 09-引用03-常量引用 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "09-引用03-常量引用"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4475C32E8BC13500E67CDC /* 10-函数 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "10-函数"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA4475CE2E8BC43100E67CDC /* 11-函数（占位参数） */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "11-函数（占位参数）"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA60D3A42E8A9D3D00965453 /* 04-全局区（内存） */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "04-全局区（内存）"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA60D3AF2E8AA32000965453 /* 05-栈区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "05-栈区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA60D3BA2E8AA63C00965453 /* 06-堆区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "06-堆区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +141,11 @@
 		AA4475C42E8BC13500E67CDC /* 10-函数 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "10-函数";
+			sourceTree = "<group>";
+		};
+		AA4475CF2E8BC43100E67CDC /* 11-函数（占位参数） */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "11-函数（占位参数）";
 			sourceTree = "<group>";
 		};
 		AA60D3A52E8A9D3D00965453 /* 04-全局区（内存） */ = {
@@ -188,6 +203,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AA4475C02E8BC13500E67CDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA4475CB2E8BC43100E67CDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,6 +274,7 @@
 				AA4475AE2E8B851400E67CDC /* 08-引用02 */,
 				AA4475B92E8B8ACA00E67CDC /* 09-引用03-常量引用 */,
 				AA4475C42E8BC13500E67CDC /* 10-函数 */,
+				AA4475CF2E8BC43100E67CDC /* 11-函数（占位参数） */,
 				AAB1E6FF2E83ED070027A035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -269,6 +292,7 @@
 				AA4475AD2E8B851400E67CDC /* 08-引用02 */,
 				AA4475B82E8B8ACA00E67CDC /* 09-引用03-常量引用 */,
 				AA4475C32E8BC13500E67CDC /* 10-函数 */,
+				AA4475CE2E8BC43100E67CDC /* 11-函数（占位参数） */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +386,28 @@
 			);
 			productName = "10-函数";
 			productReference = AA4475C32E8BC13500E67CDC /* 10-函数 */;
+			productType = "com.apple.product-type.tool";
+		};
+		AA4475CD2E8BC43100E67CDC /* 11-函数（占位参数） */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA4475D22E8BC43100E67CDC /* Build configuration list for PBXNativeTarget "11-函数（占位参数）" */;
+			buildPhases = (
+				AA4475CA2E8BC43100E67CDC /* Sources */,
+				AA4475CB2E8BC43100E67CDC /* Frameworks */,
+				AA4475CC2E8BC43100E67CDC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA4475CF2E8BC43100E67CDC /* 11-函数（占位参数） */,
+			);
+			name = "11-函数（占位参数）";
+			packageProductDependencies = (
+			);
+			productName = "11-函数（占位参数）";
+			productReference = AA4475CE2E8BC43100E67CDC /* 11-函数（占位参数） */;
 			productType = "com.apple.product-type.tool";
 		};
 		AA60D3A32E8A9D3D00965453 /* 04-全局区（内存） */ = {
@@ -517,6 +563,9 @@
 					AA4475C22E8BC13500E67CDC = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					AA4475CD2E8BC43100E67CDC = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					AA60D3A32E8A9D3D00965453 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -561,6 +610,7 @@
 				AA4475AC2E8B851400E67CDC /* 08-引用02 */,
 				AA4475B72E8B8ACA00E67CDC /* 09-引用03-常量引用 */,
 				AA4475C22E8BC13500E67CDC /* 10-函数 */,
+				AA4475CD2E8BC43100E67CDC /* 11-函数（占位参数） */,
 			);
 		};
 /* End PBXProject section */
@@ -588,6 +638,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AA4475BF2E8BC13500E67CDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA4475CA2E8BC43100E67CDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -710,6 +767,26 @@
 			name = Debug;
 		};
 		AA4475C92E8BC13500E67CDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA4475D32E8BC43100E67CDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA4475D42E8BC43100E67CDC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -991,6 +1068,15 @@
 			buildConfigurations = (
 				AA4475C82E8BC13500E67CDC /* Debug */,
 				AA4475C92E8BC13500E67CDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA4475D22E8BC43100E67CDC /* Build configuration list for PBXNativeTarget "11-函数（占位参数）" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA4475D32E8BC43100E67CDC /* Debug */,
+				AA4475D42E8BC43100E67CDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
