@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AA29C7E32E97385500BB08A0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		AA29C7EE2E9767C000BB08A0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AA4475A02E8B791900E67CDC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,6 +136,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA29C7E52E97385500BB08A0 /* 13-立方体案例 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "13-立方体案例"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA29C7F02E9767C000BB08A0 /* 14-点和圆的关系 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "14-点和圆的关系"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4475A22E8B791900E67CDC /* 07-引用 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "07-引用"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4475AD2E8B851400E67CDC /* 08-引用02 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "08-引用02"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4475B82E8B8ACA00E67CDC /* 09-引用03-常量引用 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "09-引用03-常量引用"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +153,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA29C7E62E97385500BB08A0 /* 13-立方体案例 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "13-立方体案例";
+			sourceTree = "<group>";
+		};
+		AA29C7F12E9767C000BB08A0 /* 14-点和圆的关系 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "14-点和圆的关系";
+			sourceTree = "<group>";
+		};
 		AA4475A32E8B791900E67CDC /* 07-引用 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "07-引用";
@@ -196,6 +226,20 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AA29C7E22E97385500BB08A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA29C7ED2E9767C000BB08A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA44759F2E8B791900E67CDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,6 +342,8 @@
 				AA4475C42E8BC13500E67CDC /* 10-函数 */,
 				AA4475CF2E8BC43100E67CDC /* 11-函数（占位参数） */,
 				AA4475DA2E8BCB9D00E67CDC /* 12-类和对象 */,
+				AA29C7E62E97385500BB08A0 /* 13-立方体案例 */,
+				AA29C7F12E9767C000BB08A0 /* 14-点和圆的关系 */,
 				AAB1E6FF2E83ED070027A035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -317,6 +363,8 @@
 				AA4475C32E8BC13500E67CDC /* 10-函数 */,
 				AA4475CE2E8BC43100E67CDC /* 11-函数（占位参数） */,
 				AA4475D92E8BCB9D00E67CDC /* 12-类和对象 */,
+				AA29C7E52E97385500BB08A0 /* 13-立方体案例 */,
+				AA29C7F02E9767C000BB08A0 /* 14-点和圆的关系 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,6 +372,50 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AA29C7E42E97385500BB08A0 /* 13-立方体案例 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA29C7EB2E97385500BB08A0 /* Build configuration list for PBXNativeTarget "13-立方体案例" */;
+			buildPhases = (
+				AA29C7E12E97385500BB08A0 /* Sources */,
+				AA29C7E22E97385500BB08A0 /* Frameworks */,
+				AA29C7E32E97385500BB08A0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA29C7E62E97385500BB08A0 /* 13-立方体案例 */,
+			);
+			name = "13-立方体案例";
+			packageProductDependencies = (
+			);
+			productName = "13-立方体案例";
+			productReference = AA29C7E52E97385500BB08A0 /* 13-立方体案例 */;
+			productType = "com.apple.product-type.tool";
+		};
+		AA29C7EF2E9767C000BB08A0 /* 14-点和圆的关系 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA29C7F42E9767C000BB08A0 /* Build configuration list for PBXNativeTarget "14-点和圆的关系" */;
+			buildPhases = (
+				AA29C7EC2E9767C000BB08A0 /* Sources */,
+				AA29C7ED2E9767C000BB08A0 /* Frameworks */,
+				AA29C7EE2E9767C000BB08A0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA29C7F12E9767C000BB08A0 /* 14-点和圆的关系 */,
+			);
+			name = "14-点和圆的关系";
+			packageProductDependencies = (
+			);
+			productName = "14-点和圆的关系";
+			productReference = AA29C7F02E9767C000BB08A0 /* 14-点和圆的关系 */;
+			productType = "com.apple.product-type.tool";
+		};
 		AA4475A12E8B791900E67CDC /* 07-引用 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA4475A82E8B791900E67CDC /* Build configuration list for PBXNativeTarget "07-引用" */;
@@ -597,6 +689,12 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					AA29C7E42E97385500BB08A0 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					AA29C7EF2E9767C000BB08A0 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					AA4475A12E8B791900E67CDC = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -661,11 +759,27 @@
 				AA4475C22E8BC13500E67CDC /* 10-函数 */,
 				AA4475CD2E8BC43100E67CDC /* 11-函数（占位参数） */,
 				AA4475D82E8BCB9D00E67CDC /* 12-类和对象 */,
+				AA29C7E42E97385500BB08A0 /* 13-立方体案例 */,
+				AA29C7EF2E9767C000BB08A0 /* 14-点和圆的关系 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AA29C7E12E97385500BB08A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA29C7EC2E9767C000BB08A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA44759E2E8B791900E67CDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -753,6 +867,46 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		AA29C7E92E97385500BB08A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA29C7EA2E97385500BB08A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA29C7F52E9767C000BB08A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA29C7F62E9767C000BB08A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		AA4475A62E8B791900E67CDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1113,6 +1267,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AA29C7EB2E97385500BB08A0 /* Build configuration list for PBXNativeTarget "13-立方体案例" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA29C7E92E97385500BB08A0 /* Debug */,
+				AA29C7EA2E97385500BB08A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA29C7F42E9767C000BB08A0 /* Build configuration list for PBXNativeTarget "14-点和圆的关系" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA29C7F52E9767C000BB08A0 /* Debug */,
+				AA29C7F62E9767C000BB08A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AA4475A82E8B791900E67CDC /* Build configuration list for PBXNativeTarget "07-引用" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
