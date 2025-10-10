@@ -115,6 +115,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AABA476D2E97B7B100197A0E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		AABA47782E97E0D000197A0E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		AABA47832E98A62B00197A0E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		AABA478E2E98ABE800197A0E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AAF75DED2E89250100410354 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +184,10 @@
 		AA60D3AF2E8AA32000965453 /* 05-栈区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "05-栈区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA60D3BA2E8AA63C00965453 /* 06-堆区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "06-堆区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB1E6FE2E83ED070027A035 /* LearnCPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCPP; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABA476F2E97B7B100197A0E /* 15-对象初始化和清理 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "15-对象初始化和清理"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABA477A2E97E0D000197A0E /* 16-拷贝构造函数调用时机 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "16-拷贝构造函数调用时机"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABA47852E98A62B00197A0E /* 17-test构造函数 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "17-test构造函数"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABA47902E98ABE800197A0E /* 18-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "18-test"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DEF2E89250100410354 /* 02-通讯录管理系统 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-通讯录管理系统"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DFA2E89508A00410354 /* 03-对象 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "03-对象"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -211,6 +251,26 @@
 		AAB1E7002E83ED070027A035 /* LearnCPP */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LearnCPP;
+			sourceTree = "<group>";
+		};
+		AABA47702E97B7B100197A0E /* 15-对象初始化和清理 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "15-对象初始化和清理";
+			sourceTree = "<group>";
+		};
+		AABA477B2E97E0D000197A0E /* 16-拷贝构造函数调用时机 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "16-拷贝构造函数调用时机";
+			sourceTree = "<group>";
+		};
+		AABA47862E98A62B00197A0E /* 17-test构造函数 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "17-test构造函数";
+			sourceTree = "<group>";
+		};
+		AABA47912E98ABE800197A0E /* 18-test */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "18-test";
 			sourceTree = "<group>";
 		};
 		AAF75DF02E89250100410354 /* 02-通讯录管理系统 */ = {
@@ -310,6 +370,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AABA476C2E97B7B100197A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA47772E97E0D000197A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA47822E98A62B00197A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA478D2E98ABE800197A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAF75DEC2E89250100410354 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,6 +432,10 @@
 				AA4475DA2E8BCB9D00E67CDC /* 12-类和对象 */,
 				AA29C7E62E97385500BB08A0 /* 13-立方体案例 */,
 				AA29C7F12E9767C000BB08A0 /* 14-点和圆的关系 */,
+				AABA47702E97B7B100197A0E /* 15-对象初始化和清理 */,
+				AABA477B2E97E0D000197A0E /* 16-拷贝构造函数调用时机 */,
+				AABA47862E98A62B00197A0E /* 17-test构造函数 */,
+				AABA47912E98ABE800197A0E /* 18-test */,
 				AAB1E6FF2E83ED070027A035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -365,6 +457,10 @@
 				AA4475D92E8BCB9D00E67CDC /* 12-类和对象 */,
 				AA29C7E52E97385500BB08A0 /* 13-立方体案例 */,
 				AA29C7F02E9767C000BB08A0 /* 14-点和圆的关系 */,
+				AABA476F2E97B7B100197A0E /* 15-对象初始化和清理 */,
+				AABA477A2E97E0D000197A0E /* 16-拷贝构造函数调用时机 */,
+				AABA47852E98A62B00197A0E /* 17-test构造函数 */,
+				AABA47902E98ABE800197A0E /* 18-test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -636,6 +732,94 @@
 			productReference = AAB1E6FE2E83ED070027A035 /* LearnCPP */;
 			productType = "com.apple.product-type.tool";
 		};
+		AABA476E2E97B7B100197A0E /* 15-对象初始化和清理 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABA47732E97B7B100197A0E /* Build configuration list for PBXNativeTarget "15-对象初始化和清理" */;
+			buildPhases = (
+				AABA476B2E97B7B100197A0E /* Sources */,
+				AABA476C2E97B7B100197A0E /* Frameworks */,
+				AABA476D2E97B7B100197A0E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AABA47702E97B7B100197A0E /* 15-对象初始化和清理 */,
+			);
+			name = "15-对象初始化和清理";
+			packageProductDependencies = (
+			);
+			productName = "15-对象初始化和清理";
+			productReference = AABA476F2E97B7B100197A0E /* 15-对象初始化和清理 */;
+			productType = "com.apple.product-type.tool";
+		};
+		AABA47792E97E0D000197A0E /* 16-拷贝构造函数调用时机 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABA477E2E97E0D100197A0E /* Build configuration list for PBXNativeTarget "16-拷贝构造函数调用时机" */;
+			buildPhases = (
+				AABA47762E97E0D000197A0E /* Sources */,
+				AABA47772E97E0D000197A0E /* Frameworks */,
+				AABA47782E97E0D000197A0E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AABA477B2E97E0D000197A0E /* 16-拷贝构造函数调用时机 */,
+			);
+			name = "16-拷贝构造函数调用时机";
+			packageProductDependencies = (
+			);
+			productName = "16-拷贝构造函数调用时机";
+			productReference = AABA477A2E97E0D000197A0E /* 16-拷贝构造函数调用时机 */;
+			productType = "com.apple.product-type.tool";
+		};
+		AABA47842E98A62B00197A0E /* 17-test构造函数 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABA47892E98A62B00197A0E /* Build configuration list for PBXNativeTarget "17-test构造函数" */;
+			buildPhases = (
+				AABA47812E98A62B00197A0E /* Sources */,
+				AABA47822E98A62B00197A0E /* Frameworks */,
+				AABA47832E98A62B00197A0E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AABA47862E98A62B00197A0E /* 17-test构造函数 */,
+			);
+			name = "17-test构造函数";
+			packageProductDependencies = (
+			);
+			productName = "17-test构造函数";
+			productReference = AABA47852E98A62B00197A0E /* 17-test构造函数 */;
+			productType = "com.apple.product-type.tool";
+		};
+		AABA478F2E98ABE800197A0E /* 18-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABA47942E98ABE800197A0E /* Build configuration list for PBXNativeTarget "18-test" */;
+			buildPhases = (
+				AABA478C2E98ABE800197A0E /* Sources */,
+				AABA478D2E98ABE800197A0E /* Frameworks */,
+				AABA478E2E98ABE800197A0E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AABA47912E98ABE800197A0E /* 18-test */,
+			);
+			name = "18-test";
+			packageProductDependencies = (
+			);
+			productName = "18-test";
+			productReference = AABA47902E98ABE800197A0E /* 18-test */;
+			productType = "com.apple.product-type.tool";
+		};
 		AAF75DEE2E89250100410354 /* 02-通讯录管理系统 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAF75DF52E89250100410354 /* Build configuration list for PBXNativeTarget "02-通讯录管理系统" */;
@@ -725,6 +909,18 @@
 					AAB1E6FD2E83ED070027A035 = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					AABA476E2E97B7B100197A0E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					AABA47792E97E0D000197A0E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					AABA47842E98A62B00197A0E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					AABA478F2E98ABE800197A0E = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					AAF75DEE2E89250100410354 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -761,6 +957,10 @@
 				AA4475D82E8BCB9D00E67CDC /* 12-类和对象 */,
 				AA29C7E42E97385500BB08A0 /* 13-立方体案例 */,
 				AA29C7EF2E9767C000BB08A0 /* 14-点和圆的关系 */,
+				AABA476E2E97B7B100197A0E /* 15-对象初始化和清理 */,
+				AABA47792E97E0D000197A0E /* 16-拷贝构造函数调用时机 */,
+				AABA47842E98A62B00197A0E /* 17-test构造函数 */,
+				AABA478F2E98ABE800197A0E /* 18-test */,
 			);
 		};
 /* End PBXProject section */
@@ -844,6 +1044,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AAB1E6FA2E83ED070027A035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA476B2E97B7B100197A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA47762E97E0D000197A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA47812E98A62B00197A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA478C2E98ABE800197A0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1224,6 +1452,86 @@
 			};
 			name = Release;
 		};
+		AABA47742E97B7B100197A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AABA47752E97B7B100197A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AABA477F2E97E0D100197A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AABA47802E97E0D100197A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AABA478A2E98A62B00197A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AABA478B2E98A62B00197A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AABA47952E98ABE800197A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AABA47962E98ABE800197A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		AAF75DF32E89250100410354 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1380,6 +1688,42 @@
 			buildConfigurations = (
 				AAB1E7062E83ED070027A035 /* Debug */,
 				AAB1E7072E83ED070027A035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABA47732E97B7B100197A0E /* Build configuration list for PBXNativeTarget "15-对象初始化和清理" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABA47742E97B7B100197A0E /* Debug */,
+				AABA47752E97B7B100197A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABA477E2E97E0D100197A0E /* Build configuration list for PBXNativeTarget "16-拷贝构造函数调用时机" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABA477F2E97E0D100197A0E /* Debug */,
+				AABA47802E97E0D100197A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABA47892E98A62B00197A0E /* Build configuration list for PBXNativeTarget "17-test构造函数" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABA478A2E98A62B00197A0E /* Debug */,
+				AABA478B2E98A62B00197A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABA47942E98ABE800197A0E /* Build configuration list for PBXNativeTarget "18-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABA47952E98ABE800197A0E /* Debug */,
+				AABA47962E98ABE800197A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
