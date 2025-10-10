@@ -99,6 +99,11 @@
 			<key>orderHint</key>
 			<integer>19</integer>
 		</dict>
+		<key>21-C++对象模型和this指针.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
 		<key>LearnCPP.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
