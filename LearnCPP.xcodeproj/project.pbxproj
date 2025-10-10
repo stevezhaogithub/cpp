@@ -178,6 +178,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AABA47BA2E9924A000197A0E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AAF75DED2E89250100410354 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +227,7 @@
 		AABA479B2E98B25B00197A0E /* 19-初始化列表 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "19-初始化列表"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABA47A62E98FAD900197A0E /* 20-静态成员 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "20-静态成员"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABA47B12E9900CE00197A0E /* 21-C++对象模型和this指针 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "21-C++对象模型和this指针"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABA47BC2E9924A000197A0E /* 22-空指针访问成员函数 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "22-空指针访问成员函数"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DEF2E89250100410354 /* 02-通讯录管理系统 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-通讯录管理系统"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DFA2E89508A00410354 /* 03-对象 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "03-对象"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -316,6 +326,11 @@
 		AABA47B22E9900CE00197A0E /* 21-C++对象模型和this指针 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "21-C++对象模型和this指针";
+			sourceTree = "<group>";
+		};
+		AABA47BD2E9924A000197A0E /* 22-空指针访问成员函数 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "22-空指针访问成员函数";
 			sourceTree = "<group>";
 		};
 		AAF75DF02E89250100410354 /* 02-通讯录管理系统 */ = {
@@ -464,6 +479,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AABA47B92E9924A000197A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAF75DEC2E89250100410354 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,6 +527,7 @@
 				AABA479C2E98B25B00197A0E /* 19-初始化列表 */,
 				AABA47A72E98FAD900197A0E /* 20-静态成员 */,
 				AABA47B22E9900CE00197A0E /* 21-C++对象模型和this指针 */,
+				AABA47BD2E9924A000197A0E /* 22-空指针访问成员函数 */,
 				AAB1E6FF2E83ED070027A035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -533,6 +556,7 @@
 				AABA479B2E98B25B00197A0E /* 19-初始化列表 */,
 				AABA47A62E98FAD900197A0E /* 20-静态成员 */,
 				AABA47B12E9900CE00197A0E /* 21-C++对象模型和this指针 */,
+				AABA47BC2E9924A000197A0E /* 22-空指针访问成员函数 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -958,6 +982,28 @@
 			productReference = AABA47B12E9900CE00197A0E /* 21-C++对象模型和this指针 */;
 			productType = "com.apple.product-type.tool";
 		};
+		AABA47BB2E9924A000197A0E /* 22-空指针访问成员函数 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABA47C02E9924A000197A0E /* Build configuration list for PBXNativeTarget "22-空指针访问成员函数" */;
+			buildPhases = (
+				AABA47B82E9924A000197A0E /* Sources */,
+				AABA47B92E9924A000197A0E /* Frameworks */,
+				AABA47BA2E9924A000197A0E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AABA47BD2E9924A000197A0E /* 22-空指针访问成员函数 */,
+			);
+			name = "22-空指针访问成员函数";
+			packageProductDependencies = (
+			);
+			productName = "22-空指针访问成员函数";
+			productReference = AABA47BC2E9924A000197A0E /* 22-空指针访问成员函数 */;
+			productType = "com.apple.product-type.tool";
+		};
 		AAF75DEE2E89250100410354 /* 02-通讯录管理系统 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAF75DF52E89250100410354 /* Build configuration list for PBXNativeTarget "02-通讯录管理系统" */;
@@ -1068,6 +1114,9 @@
 					AABA47B02E9900CE00197A0E = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					AABA47BB2E9924A000197A0E = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					AAF75DEE2E89250100410354 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -1111,6 +1160,7 @@
 				AABA479A2E98B25B00197A0E /* 19-初始化列表 */,
 				AABA47A52E98FAD900197A0E /* 20-静态成员 */,
 				AABA47B02E9900CE00197A0E /* 21-C++对象模型和this指针 */,
+				AABA47BB2E9924A000197A0E /* 22-空指针访问成员函数 */,
 			);
 		};
 /* End PBXProject section */
@@ -1243,6 +1293,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AABA47AD2E9900CE00197A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA47B82E9924A000197A0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1763,6 +1820,26 @@
 			};
 			name = Release;
 		};
+		AABA47C12E9924A000197A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AABA47C22E9924A000197A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		AAF75DF32E89250100410354 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1982,6 +2059,15 @@
 			buildConfigurations = (
 				AABA47B62E9900CE00197A0E /* Debug */,
 				AABA47B72E9900CE00197A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABA47C02E9924A000197A0E /* Build configuration list for PBXNativeTarget "22-空指针访问成员函数" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABA47C12E9924A000197A0E /* Debug */,
+				AABA47C22E9924A000197A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
