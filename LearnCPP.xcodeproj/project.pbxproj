@@ -187,6 +187,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AABA47FA2E99343200197A0E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AAF75DED2E89250100410354 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +237,7 @@
 		AABA47A62E98FAD900197A0E /* 20-静态成员 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "20-静态成员"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABA47B12E9900CE00197A0E /* 21-C++对象模型和this指针 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "21-C++对象模型和this指针"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABA47BC2E9924A000197A0E /* 22-空指针访问成员函数 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "22-空指针访问成员函数"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABA47FC2E99343200197A0E /* 23-友元 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "23-友元"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DEF2E89250100410354 /* 02-通讯录管理系统 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-通讯录管理系统"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF75DFA2E89508A00410354 /* 03-对象 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "03-对象"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -331,6 +341,11 @@
 		AABA47BD2E9924A000197A0E /* 22-空指针访问成员函数 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "22-空指针访问成员函数";
+			sourceTree = "<group>";
+		};
+		AABA47FD2E99343200197A0E /* 23-友元 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "23-友元";
 			sourceTree = "<group>";
 		};
 		AAF75DF02E89250100410354 /* 02-通讯录管理系统 */ = {
@@ -486,6 +501,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AABA47F92E99343200197A0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAF75DEC2E89250100410354 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +550,7 @@
 				AABA47A72E98FAD900197A0E /* 20-静态成员 */,
 				AABA47B22E9900CE00197A0E /* 21-C++对象模型和this指针 */,
 				AABA47BD2E9924A000197A0E /* 22-空指针访问成员函数 */,
+				AABA47FD2E99343200197A0E /* 23-友元 */,
 				AAB1E6FF2E83ED070027A035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -557,6 +580,7 @@
 				AABA47A62E98FAD900197A0E /* 20-静态成员 */,
 				AABA47B12E9900CE00197A0E /* 21-C++对象模型和this指针 */,
 				AABA47BC2E9924A000197A0E /* 22-空指针访问成员函数 */,
+				AABA47FC2E99343200197A0E /* 23-友元 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1004,6 +1028,28 @@
 			productReference = AABA47BC2E9924A000197A0E /* 22-空指针访问成员函数 */;
 			productType = "com.apple.product-type.tool";
 		};
+		AABA47FB2E99343200197A0E /* 23-友元 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABA48022E99343200197A0E /* Build configuration list for PBXNativeTarget "23-友元" */;
+			buildPhases = (
+				AABA47F82E99343200197A0E /* Sources */,
+				AABA47F92E99343200197A0E /* Frameworks */,
+				AABA47FA2E99343200197A0E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AABA47FD2E99343200197A0E /* 23-友元 */,
+			);
+			name = "23-友元";
+			packageProductDependencies = (
+			);
+			productName = "23-友元";
+			productReference = AABA47FC2E99343200197A0E /* 23-友元 */;
+			productType = "com.apple.product-type.tool";
+		};
 		AAF75DEE2E89250100410354 /* 02-通讯录管理系统 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAF75DF52E89250100410354 /* Build configuration list for PBXNativeTarget "02-通讯录管理系统" */;
@@ -1117,6 +1163,9 @@
 					AABA47BB2E9924A000197A0E = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					AABA47FB2E99343200197A0E = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					AAF75DEE2E89250100410354 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -1161,6 +1210,7 @@
 				AABA47A52E98FAD900197A0E /* 20-静态成员 */,
 				AABA47B02E9900CE00197A0E /* 21-C++对象模型和this指针 */,
 				AABA47BB2E9924A000197A0E /* 22-空指针访问成员函数 */,
+				AABA47FB2E99343200197A0E /* 23-友元 */,
 			);
 		};
 /* End PBXProject section */
@@ -1300,6 +1350,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AABA47B82E9924A000197A0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABA47F82E99343200197A0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1840,6 +1897,26 @@
 			};
 			name = Release;
 		};
+		AABA48002E99343200197A0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AABA48012E99343200197A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		AAF75DF32E89250100410354 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2068,6 +2145,15 @@
 			buildConfigurations = (
 				AABA47C12E9924A000197A0E /* Debug */,
 				AABA47C22E9924A000197A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABA48022E99343200197A0E /* Build configuration list for PBXNativeTarget "23-友元" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABA48002E99343200197A0E /* Debug */,
+				AABA48012E99343200197A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
