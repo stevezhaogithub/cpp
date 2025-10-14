@@ -25,6 +25,11 @@ public:
         pourInCup();
         putIn();
     }
+
+    // 增加虚析构函数
+    ~AbstractDrinking()
+    {
+    }
 };
 
 // 咖啡
@@ -86,6 +91,7 @@ class Tea : public AbstractDrinking
 void doWork(AbstractDrinking *absd)
 {
     absd->makeDrink();
+    delete absd;
 }
 
 void test01()
@@ -93,6 +99,7 @@ void test01()
 
     doWork(new Coffe);
 
+    cout << " ---------------------- " << endl;
     doWork(new Tea);
 }
 
