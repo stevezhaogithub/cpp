@@ -3,6 +3,13 @@
 #include <fstream>
 using namespace std;
 
+class Person
+{
+public:
+    char name[64];
+    int age;
+};
+
 // 1. 写文本文件
 void writeTextFile()
 {
@@ -70,9 +77,37 @@ string readTextFile()
     return "ok";
 }
 
+// 3. 写入二进制文件
+void writeBinaryFile()
+{
+    // 创建流对象
+    ofstream ofs("person.bin", ios::out | ios::binary);
+    // ofs.open("file01.bin", ios::out | ios::binary);
+    Person p = {"张三", 19};
+    ofs.write((const char *)&p, sizeof(p));
+    ofs.close();
+}
+
+// 4. 读取二进制文件
+void readBinaryFile()
+{
+    ifstream ifs("person.bin", ios::in | ios::binary);
+    if (!ifs.is_open())
+    {
+        cout << "file open failed." << endl;
+    }
+    Person p;
+    ifs.read((char *)&p, sizeof(Person));
+
+    cout << "姓名：" << p.name << endl;
+    cout << "年龄：" << p.age << endl;
+}
+
 int main()
 {
     // writeTextFile();
-    readTextFile();
+    // readTextFile();
+    // writeBinaryFile();
+    readBinaryFile();
     return 0;
 }
