@@ -35,4 +35,11 @@ class WorkerManager {
     
     // 将数据保存到文件中
     void save();
+    
+    
+    // 判断文件是否为空
+    bool is_file_empty;
+    
+    // 显示员工
+    void show_employees();
 };

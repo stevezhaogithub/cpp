@@ -16,10 +16,40 @@
 
 // 构造函数的实现
 WorkerManager::WorkerManager() {
-    //  初始化人数
-    this->m_count = 0;
-    // 初始化指针数组
-    this->m_employees = NULL;
+
+    // 1. 读取文件，根据文件内容初始化成员变量
+    ifstream ifs;
+    ifs.open(FILENAME, ios::in);
+    if (!ifs.is_open()) {
+        // 文件不存在
+        cout << "文件不存在！" << endl;
+        //  初始化人数
+        this->m_count = 0;
+        // 初始化指针数组
+        this->m_employees = NULL;
+
+        this->is_file_empty = true;
+        ifs.close(); // 关闭文件流
+    } else {
+        // 文件存在
+        char ch;
+        // 读取一个字符到 ch 中
+        ifs >> ch;
+        // 1. 数据为空
+        if (ifs.eof()) {
+            // 表示文件为空
+            cout << "文件为空！" << endl;
+            //  初始化人数
+            this->m_count = 0;
+            // 初始化指针数组
+            this->m_employees = NULL;
+
+            this->is_file_empty = true;
+            ifs.close(); // 关闭文件流
+        }
+
+        // 2. 数据不为空
+    }
 }
 
 // 析构函数的实现
@@ -120,6 +150,9 @@ void WorkerManager::addEmployee() {
         // 更新总人数
         this->m_count = new_size;
 
+        // 更新员工不为空的标志
+        this->is_file_empty = false;
+
         // 提示信息
         cout << "成功添加 " << count << " 名新员工！" << endl;
         // 保存数据到文件
@@ -147,4 +180,12 @@ void WorkerManager::save() {
     }
     // 关闭文件流
     ofs.close();
+}
+
+// 显示员工
+void WorkerManager::show_employees() {
+
+    // 1. 读取文件
+
+    // 2. 显示
 }
