@@ -6,6 +6,7 @@
 //
 
 #include "Employee.hpp"
+#include <iomanip>
 
 // 实现构造函数
 Employee::Employee(int _no, string _name, int _deptNo) {
@@ -16,9 +17,9 @@ Employee::Employee(int _no, string _name, int _deptNo) {
 
 // 显示个人信息函数
 void Employee::showInfo() {
-    cout << "职工编号：" << this->m_no << "\t\t职工姓名：" << this->m_name
-         << "\t\t部门名称：" << this->getDeptName()
-         << "\t\t岗位职责：完成经理交给的任务" << endl;
+    cout << "员工编号：" << setfill(' ') << left << setw(10) << this->m_no
+         << "员工姓名：" << setfill(' ') << left << setw(10) << this->m_name
+         << "员工部门编号：" << this->m_dept_no << endl;
 }
 // 获取部门名称函数
 string Employee::getDeptName() {
