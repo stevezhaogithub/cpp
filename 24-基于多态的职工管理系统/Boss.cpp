@@ -6,6 +6,7 @@
 //
 
 #include "Boss.hpp"
+#include <iomanip>
 
 Boss::Boss(int _no, string _name, int _deptNo) {
     this->m_no = _no;
@@ -14,9 +15,9 @@ Boss::Boss(int _no, string _name, int _deptNo) {
 }
 
 void Boss::showInfo() {
-    cout << "职工编号：" << this->m_no << "\t\t职工姓名：" << this->m_name
-         << "\t\t部门名称：" << this->getDeptName()
-         << "\t\t岗位职责：管理公司所有事务" << endl;
+    cout << "员工编号：" << setfill(' ') << left << setw(10) << this->m_no
+         << "员工姓名：" << setfill(' ') << left << setw(10) << this->m_name
+         << "员工部门编号：" << this->m_dept_no << endl;
 }
 
 string Boss::getDeptName() { return string("老板"); }

@@ -6,6 +6,7 @@
 //
 
 #include "Manager.hpp"
+#include <iomanip>
 
 Manager::Manager(int _no, string _name, int _deptNo) {
     this->m_no = _no;
@@ -13,10 +14,8 @@ Manager::Manager(int _no, string _name, int _deptNo) {
     this->m_dept_no = _deptNo;
 }
 void Manager::showInfo() {
-    cout << "员工编号：" << this->m_no << "\t\t员工姓名：" << this->m_name
-         << "\t\t员工部门：" << this->getDeptName() << "\t\t岗位职责：发布任务"
-         << endl;
+    cout << "员工编号：" << setfill(' ') << left << setw(10) << this->m_no
+         << "员工姓名：" << setfill(' ') << left << setw(10) << this->m_name
+         << "员工部门编号：" << this->m_dept_no << endl;
 }
-string Manager::getDeptName() {
-    return string("经理");
-}
+string Manager::getDeptName() { return string("经理"); }

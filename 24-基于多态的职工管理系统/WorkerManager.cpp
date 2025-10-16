@@ -11,6 +11,7 @@
 #include "Manager.hpp"
 #include "Worker.hpp"
 #include <fstream>
+#include <iomanip>
 
 #define FILENAME "employees.txt"
 
@@ -46,9 +47,28 @@ WorkerManager::WorkerManager() {
 
             this->is_file_empty = true;
             ifs.close(); // 关闭文件流
-        }
+        } else {
 
-        // 2. 数据不为空
+            // 2. 数据不为空
+            int empNumber = this->get_emp_count();
+            // cout << "员工人数为：" << empNumber << endl;
+            this->m_count = empNumber;
+
+            // 开辟空间
+            this->m_employees = new Worker *[this->m_count];
+            // 将文件中的数据读取到数组中
+            this->init_employees();
+
+            //            // 循环输出每一位员工
+            //            for (int i = 0; i < this->m_count; i++) {
+            //                cout << "员工编号：" << this->m_employees[i]->m_no
+            //                     << "员工姓名：" <<
+            //                     this->m_employees[i]->m_name
+            //                     << "\t\t部门编号：" <<
+            //                     this->m_employees[i]->m_dept_no
+            //                     << endl;
+            //            }
+        }
     }
 }
 
@@ -174,8 +194,8 @@ void WorkerManager::save() {
     ofs.open(FILENAME, ios::out);
     // 写入文件
     for (int i = 0; i < this->m_count; i++) {
-        ofs << this->m_employees[i]->m_no << "\t\t"
-            << this->m_employees[i]->m_name << "\t\t"
+        ofs << left << setw(10) << this->m_employees[i]->m_no << left
+            << setw(10) << this->m_employees[i]->m_name << left << setw(10)
             << this->m_employees[i]->m_dept_no << endl;
     }
     // 关闭文件流
@@ -185,7 +205,57 @@ void WorkerManager::save() {
 // 显示员工
 void WorkerManager::show_employees() {
 
-    // 1. 读取文件
+    if (this->is_file_empty) {
+        cout << "文件不存在或文件内容为空！" << endl;
+    } else {
+        // 1. 读取文件: 在构造函数中已经读取文件了
 
-    // 2. 显示
+        // 2. 显示
+        for (int i = 0; i < this->m_count; i++) {
+            // 此处调用 showInfo() 体现类多态
+            this->m_employees[i]->showInfo();
+        }
+    }
+    cout << "按任意键继续..." << endl;
+    cin.ignore(); // 忽略一个字符（换行符）
+    cin.get();
+    system("clear");
+}
+
+// 统计文件中的员工人数
+int WorkerManager::get_emp_count() {
+    ifstream ifs;
+    int _count = 0;
+    ifs.open(FILENAME, ios::in); // 打开文件
+    int _no, _deptNo;
+    string _name;
+    while (ifs >> _no && ifs >> _name && ifs >> _deptNo) {
+        _count++;
+    }
+    return _count;
+}
+
+// 初始化员工
+void WorkerManager::init_employees() {
+    ifstream ifs;
+    ifs.open(FILENAME, ios::in);
+    int _no, _deptNo;
+    string _name;
+
+    int index = 0;
+    while (ifs >> _no && ifs >> _name && ifs >> _deptNo) {
+        Worker *worker = NULL;
+
+        // 根据不同的部门 No 创建不同的对象
+        if (_deptNo == 1) {
+            worker = new Employee(_no, _name, _deptNo);
+        } else if (_deptNo == 2) {
+            worker = new Manager(_no, _name, _deptNo);
+        } else if (_deptNo == 3) {
+            worker = new Boss(_no, _name, _deptNo);
+        }
+
+        // 将对象存储到数组中
+        this->m_employees[index++] = worker;
+    }
 }

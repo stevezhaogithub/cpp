@@ -1,0 +1,5 @@
+1001      steve     3         
+1002      bob       2         
+1003      jerry     1         
+1004      cherry    1         
+1005      larry     2         

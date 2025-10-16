@@ -42,4 +42,10 @@ class WorkerManager {
     
     // 显示员工
     void show_employees();
+    
+    // 统计文件中的人数
+    int get_emp_count();
+    
+    // 初始化员工
+    void init_employees();
 };

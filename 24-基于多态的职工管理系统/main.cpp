@@ -15,18 +15,6 @@ using namespace std;
 
 int main(int argc, const char *argv[]) {
 
-    //    Worker *wk = NULL;
-    //    wk = new Employee(1001, "张三", 9001);
-    //    wk->showInfo();
-    //
-    //    Worker *wk1 = NULL;
-    //    wk1 = new Manager(2001, "李四", 8001);
-    //    wk1->showInfo();
-    //
-    //    Worker *wk2 = NULL;
-    //    wk2 = new Boss(3001, "王五", 7001);
-    //    wk2->showInfo();
-
     WorkerManager wkm;
     int selected = 0;
     while (true) {
@@ -44,6 +32,7 @@ int main(int argc, const char *argv[]) {
             break;
         case 2:
             // 显示
+                wkm.show_employees();
             break;
         case 3:
             // 删除
@@ -67,9 +56,5 @@ int main(int argc, const char *argv[]) {
             break;
         }
     }
-
-    //    // 防止窗口立即关闭
-    //    cin.get();
-    //    cin.get();
     return 0;
 }
