@@ -46,9 +46,13 @@ WorkerManager::WorkerManager() {
 
             this->is_file_empty = true;
             ifs.close(); // 关闭文件流
-        }
+        } else {
 
-        // 2. 数据不为空
+            // 2. 数据不为空
+            int empNumber = this->get_emp_count();
+            cout << "员工人数为：" << empNumber << endl;
+            this->m_count = empNumber;
+        }
     }
 }
 
@@ -188,4 +192,42 @@ void WorkerManager::show_employees() {
     // 1. 读取文件
 
     // 2. 显示
+}
+
+// 统计文件中的员工人数
+int WorkerManager::get_emp_count() {
+    ifstream ifs;
+    int _count = 0;
+    ifs.open(FILENAME, ios::in); // 打开文件
+    int _no, _deptNo;
+    string _name;
+    while (ifs >> _no && ifs >> _name && ifs >> _deptNo) {
+        _count++;
+    }
+    return _count;
+}
+
+// 初始化员工
+void WorkerManager::init_employees() {
+    ifstream ifs;
+    ifs.open(FILENAME, ios::in);
+    int _no, _deptNo;
+    string _name;
+
+    int index = 0;
+    while (ifs >> _no && ifs >> _name && ifs >> _deptNo) {
+        Worker *worker = NULL;
+
+        // 根据不同的部门 No 创建不同的对象
+        if (_deptNo == 1) {
+            worker = new Employee(_no, _name, _deptNo);
+        } else if (_deptNo == 2) {
+            worker = new Manager(_no, _name, _deptNo);
+        } else if (_deptNo == 3) {
+            worker = new Boss(_no, _name, _deptNo);
+        }
+
+        // 将对象存储到数组中
+        this->m_employees[index++] = worker;
+    }
 }
