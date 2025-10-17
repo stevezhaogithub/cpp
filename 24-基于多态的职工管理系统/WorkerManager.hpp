@@ -48,4 +48,15 @@ class WorkerManager {
     
     // 初始化员工
     void init_employees();
+
+    // 删除员工
+    void delete_employee();
+
+
+    // 按照员工编号 _no 查询员工是否存在
+    int is_exists(int _no);
+
+
+    // 修改员工信息
+    void modify_employee(int _no);
 };

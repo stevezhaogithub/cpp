@@ -13,15 +13,18 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, const char *argv[]) {
+int main(int argc, const char *argv[])
+{
 
     WorkerManager wkm;
     int selected = 0;
-    while (true) {
+    while (true)
+    {
         wkm.show_menu();
         cout << "请输入您的选择：";
         cin >> selected;
-        switch (selected) {
+        switch (selected)
+        {
         case 0:
             // 退出系统
             wkm.exit_system();
@@ -32,10 +35,11 @@ int main(int argc, const char *argv[]) {
             break;
         case 2:
             // 显示
-                wkm.show_employees();
+            wkm.show_employees();
             break;
         case 3:
             // 删除
+            wkm.delete_employee();
             break;
         case 4:
             // 修改

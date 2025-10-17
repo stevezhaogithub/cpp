@@ -16,12 +16,14 @@
 #define FILENAME "employees.txt"
 
 // 构造函数的实现
-WorkerManager::WorkerManager() {
+WorkerManager::WorkerManager()
+{
 
     // 1. 读取文件，根据文件内容初始化成员变量
     ifstream ifs;
     ifs.open(FILENAME, ios::in);
-    if (!ifs.is_open()) {
+    if (!ifs.is_open())
+    {
         // 文件不存在
         cout << "文件不存在！" << endl;
         //  初始化人数
@@ -31,13 +33,16 @@ WorkerManager::WorkerManager() {
 
         this->is_file_empty = true;
         ifs.close(); // 关闭文件流
-    } else {
+    }
+    else
+    {
         // 文件存在
         char ch;
         // 读取一个字符到 ch 中
         ifs >> ch;
         // 1. 数据为空
-        if (ifs.eof()) {
+        if (ifs.eof())
+        {
             // 表示文件为空
             cout << "文件为空！" << endl;
             //  初始化人数
@@ -47,7 +52,9 @@ WorkerManager::WorkerManager() {
 
             this->is_file_empty = true;
             ifs.close(); // 关闭文件流
-        } else {
+        }
+        else
+        {
 
             // 2. 数据不为空
             int empNumber = this->get_emp_count();
@@ -73,16 +80,19 @@ WorkerManager::WorkerManager() {
 }
 
 // 析构函数的实现
-WorkerManager::~WorkerManager() {
+WorkerManager::~WorkerManager()
+{
     // 释放堆区数据
-    if (this->m_employees != NULL) {
+    if (this->m_employees != NULL)
+    {
         delete[] this->m_employees;
         this->m_employees = NULL;
     }
 }
 
 // 显示菜单
-void WorkerManager::show_menu() {
+void WorkerManager::show_menu()
+{
     cout << "********************************************" << endl;
     cout << "************* 欢迎使用职工管理系统 *************" << endl;
     cout << "*************  0. 退出管理程序   *************" << endl;
@@ -97,17 +107,20 @@ void WorkerManager::show_menu() {
 }
 
 // 退出系统
-void WorkerManager::exit_system() {
+void WorkerManager::exit_system()
+{
     cout << "欢迎下次使用！" << endl;
     exit(0);
 }
 
 // 添加员工
-void WorkerManager::addEmployee() {
+void WorkerManager::addEmployee()
+{
     cout << "请输入要增加的员工数量：";
     int count = 0;
     cin >> count;
-    if (count > 0) {
+    if (count > 0)
+    {
 
         // 计算新空间大小
         int new_size = this->m_count + count;
@@ -115,14 +128,17 @@ void WorkerManager::addEmployee() {
         Worker **new_space = new Worker *[new_size];
 
         // 将原空间下内容存放到新空间下
-        if (this->m_employees != NULL) {
-            for (int i = 0; i < this->m_count; i++) {
+        if (this->m_employees != NULL)
+        {
+            for (int i = 0; i < this->m_count; i++)
+            {
                 new_space[i] = this->m_employees[i];
             }
         }
 
         // 循环输入新数据
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count; i++)
+        {
             int _no;
             string _name;
             int _deptNo;
@@ -140,7 +156,8 @@ void WorkerManager::addEmployee() {
             cin >> _deptNo;
 
             Worker *wker = NULL;
-            switch (_deptNo) {
+            switch (_deptNo)
+            {
             case 1:
                 // 普通员工
                 wker = new Employee(_no, _name, _deptNo);
@@ -181,19 +198,23 @@ void WorkerManager::addEmployee() {
         cout << "按 Enter 键继续..." << endl;
         cin.get();
         system("clear");
-    } else {
+    }
+    else
+    {
         cout << "输入有误！" << endl;
     }
 }
 
 // 将数据保存到文件中
-void WorkerManager::save() {
+void WorkerManager::save()
+{
 
     // 创建文件写入流
     ofstream ofs;
     ofs.open(FILENAME, ios::out);
     // 写入文件
-    for (int i = 0; i < this->m_count; i++) {
+    for (int i = 0; i < this->m_count; i++)
+    {
         ofs << left << setw(10) << this->m_employees[i]->m_no << left
             << setw(10) << this->m_employees[i]->m_name << left << setw(10)
             << this->m_employees[i]->m_dept_no << endl;
@@ -203,15 +224,20 @@ void WorkerManager::save() {
 }
 
 // 显示员工
-void WorkerManager::show_employees() {
+void WorkerManager::show_employees()
+{
 
-    if (this->is_file_empty) {
+    if (this->is_file_empty)
+    {
         cout << "文件不存在或文件内容为空！" << endl;
-    } else {
+    }
+    else
+    {
         // 1. 读取文件: 在构造函数中已经读取文件了
 
         // 2. 显示
-        for (int i = 0; i < this->m_count; i++) {
+        for (int i = 0; i < this->m_count; i++)
+        {
             // 此处调用 showInfo() 体现类多态
             this->m_employees[i]->showInfo();
         }
@@ -223,39 +249,118 @@ void WorkerManager::show_employees() {
 }
 
 // 统计文件中的员工人数
-int WorkerManager::get_emp_count() {
+int WorkerManager::get_emp_count()
+{
     ifstream ifs;
     int _count = 0;
     ifs.open(FILENAME, ios::in); // 打开文件
     int _no, _deptNo;
     string _name;
-    while (ifs >> _no && ifs >> _name && ifs >> _deptNo) {
+    while (ifs >> _no && ifs >> _name && ifs >> _deptNo)
+    {
         _count++;
     }
     return _count;
 }
 
 // 初始化员工
-void WorkerManager::init_employees() {
+void WorkerManager::init_employees()
+{
     ifstream ifs;
     ifs.open(FILENAME, ios::in);
     int _no, _deptNo;
     string _name;
 
     int index = 0;
-    while (ifs >> _no && ifs >> _name && ifs >> _deptNo) {
+    while (ifs >> _no && ifs >> _name && ifs >> _deptNo)
+    {
         Worker *worker = NULL;
 
         // 根据不同的部门 No 创建不同的对象
-        if (_deptNo == 1) {
+        if (_deptNo == 1)
+        {
             worker = new Employee(_no, _name, _deptNo);
-        } else if (_deptNo == 2) {
+        }
+        else if (_deptNo == 2)
+        {
             worker = new Manager(_no, _name, _deptNo);
-        } else if (_deptNo == 3) {
+        }
+        else if (_deptNo == 3)
+        {
             worker = new Boss(_no, _name, _deptNo);
         }
 
         // 将对象存储到数组中
         this->m_employees[index++] = worker;
+    }
+}
+
+// 删除员工
+void WorkerManager::delete_employee()
+{
+    // 判断文件是否存在
+    if (this->is_file_empty)
+    {
+        cout << "文件不存在或者文件为空！" << endl;
+    }
+    else
+    {
+        // 根据用户输入删除指定的员工
+        cout << "请输入想要删除的员工编号：";
+        int _del_no;
+        cin >> _del_no;
+
+        // 判断 _del_no 是否存在
+        int idx = this->is_exists(_del_no);
+        if (idx != -1)
+        {
+            // 存在可以删除：移动数组元素，并且重新写入到文件
+            // 循环遍历，找到后移动
+            for (int i = idx + 1; i < this->m_count; i++)
+            {
+                this->m_employees[i - 1] = this->m_employees[i];
+            }
+            // 总数据量减一
+            this->m_count--;
+            // 重新写入到文件
+            this->save();
+            cout << "删除成功！" << endl;
+        }
+        else
+        {
+            cout << "输入的员工编号错误！" << endl;
+        }
+        cout << "按 Enter 键继续..." << endl;
+        cin.get();
+        cin.get();
+    }
+}
+
+// 按照员工编号 _no 查询员工是否存在
+int WorkerManager::is_exists(int _no)
+{
+    int idx = -1;
+    for (int i = 0; i < this->m_count; i++)
+    {
+        if (this->m_employees[i]->m_no == _no)
+        {
+            idx = i;
+            break;
+        }
+    }
+    return idx;
+}
+
+// 修改员工信息
+void WorkerManager::modify_employee(int _no)
+{
+    // 判断文件是否存在
+    if (!this->is_file_empty)
+    {
+        // 文件存在
+    }
+    else
+    {
+        cout << "文件不存在或者文件为空!" << endl;
     }
 }
