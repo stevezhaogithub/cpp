@@ -65,16 +65,6 @@ WorkerManager::WorkerManager()
             this->m_employees = new Worker *[this->m_count];
             // 将文件中的数据读取到数组中
             this->init_employees();
-
-            //            // 循环输出每一位员工
-            //            for (int i = 0; i < this->m_count; i++) {
-            //                cout << "员工编号：" << this->m_employees[i]->m_no
-            //                     << "员工姓名：" <<
-            //                     this->m_employees[i]->m_name
-            //                     << "\t\t部门编号：" <<
-            //                     this->m_employees[i]->m_dept_no
-            //                     << endl;
-            //            }
         }
     }
 }
@@ -216,7 +206,7 @@ void WorkerManager::save()
     for (int i = 0; i < this->m_count; i++)
     {
         ofs << left << setw(10) << this->m_employees[i]->m_no << left
-            << setw(10) << this->m_employees[i]->m_name << left << setw(10)
+            << setw(20) << this->m_employees[i]->m_name << left << setw(10)
             << this->m_employees[i]->m_dept_no << endl;
     }
     // 关闭文件流
@@ -352,15 +342,133 @@ int WorkerManager::is_exists(int _no)
 }
 
 // 修改员工信息
-void WorkerManager::modify_employee(int _no)
+void WorkerManager::modify_employee()
 {
     // 判断文件是否存在
     if (!this->is_file_empty)
     {
+        int _no;
+        cout << "请输入要修改的员工编号：";
+        cin >> _no;
         // 文件存在
+        // 根据 _no 获取的员工在数组中的索引
+        int idx = this->is_exists(_no);
+        if (idx != -1)
+        {
+
+            cout << "已经查询到编号为：" << _no << "的员工，请输入要修改的内容：" << endl;
+            // 找到 _no 了, 根据 idx 修改对应的员工信息
+            // 提示请输入 no、name、和 deptNo
+            string _empName;
+            int _deptNo, _newNo;
+            cout << "请输入新的员工编号：";
+            cin >> _newNo;
+            cout << "请输入员工姓名：";
+            cin >> _empName;
+            cout << "请输入岗位：" << endl;
+            cout << "1、普通员工" << endl;
+            cout << "2、经理" << endl;
+            cout << "3、老板" << endl;
+            cin >> _deptNo;
+
+            this->m_employees[idx]->m_no = _newNo;
+            this->m_employees[idx]->m_name = _empName;
+            this->m_employees[idx]->m_dept_no = _deptNo;
+
+            this->save();
+            cout << "修改完毕！" << endl;
+            cout << "按 Enter 键结束..." << endl;
+            cin.ignore(); // 忽略一个字符（换行符）
+            cin.get();
+            system("clear");
+        }
+        else
+        {
+            cout << "输入的 员工编号 无效!" << endl;
+        }
     }
     else
     {
         cout << "文件不存在或者文件为空!" << endl;
+    }
+}
+
+// 查找员工
+void WorkerManager::find_employee()
+{
+    if (this->is_file_empty)
+    {
+        cout << "文件不存在或文件为空！" << endl;
+    }
+    else
+    {
+        // 查找文件中的内容
+        cout << "请输入查找方式：1、按员工编号查找 2、按员工姓名查找" << endl;
+        int selected;
+        cin >> selected;
+        if (selected == 1)
+        {
+            // 按员工编号查找
+            int _no;
+            cout << "请输入员工编号：";
+            cin >> _no;
+
+            int idx = this->is_exists(_no);
+            if (idx != -1)
+            {
+                // 找到了对应的员工
+                cout << "找到了该职工，该职工信息如下：" << endl;
+                this->m_employees[idx]->showInfo();
+            }
+            else
+            {
+                cout << "未查询到该职工！" << endl;
+            }
+        }
+        else if (selected == 2)
+        {
+            string _emp_name;
+            // 按员工姓名查找
+            cout << "请输入要查找的员工姓名：";
+            cin >> _emp_name;
+
+            // 是否查找到了
+            bool flag = false;
+            for (int i = 0; i < this->m_count; i++)
+            {
+                if (this->m_employees[i]->m_name == _emp_name)
+                {
+                    cout << "查找成功，职工编号为：" << this->m_employees[i]->m_no
+                         << "具体信息如下：" << endl;
+                    flag = true;
+                    this->m_employees[i]->showInfo();
+                }
+            }
+            if (!flag)
+            {
+                cout << "查找失败，没有找到名字叫：" << _emp_name << "的人！" << endl;
+            }
+        }
+        else
+        {
+            cout << "输入有误， 请重新输入！" << endl;
+        }
+        cout << "按 Enter 键继续..." << endl;
+        cin.ignore();
+        cin.get();
+    }
+}
+
+// 排序
+void WorkerManager::sort_employees()
+{
+
+    if (this->is_file_empty)
+    {
+        cout << "文件不存在或者文件为空!" << endl;
+        system("clear");
+    }
+    else
+    {
     }
 }

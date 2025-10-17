@@ -58,5 +58,13 @@ class WorkerManager {
 
 
     // 修改员工信息
-    void modify_employee(int _no);
+    void modify_employee();
+
+
+    // 查找员工
+    void find_employee();
+
+
+    // 排序
+    void sort_employees();
 };

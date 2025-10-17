@@ -43,9 +43,11 @@ int main(int argc, const char *argv[])
             break;
         case 4:
             // 修改
+            wkm.modify_employee();
             break;
         case 5:
             // 查找
+            wkm.find_employee();
             break;
         case 6:
             // 排序
