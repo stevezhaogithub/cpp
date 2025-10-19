@@ -459,16 +459,68 @@ void WorkerManager::find_employee()
     }
 }
 
-// 排序
+// 排序：用户可以指定排序规则
 void WorkerManager::sort_employees()
 {
 
     if (this->is_file_empty)
     {
         cout << "文件不存在或者文件为空!" << endl;
+        cout << "按任意键继续..." << endl;
+        cin.ignore();
+        cin.get();
         system("clear");
     }
     else
     {
+        cout << "请选择排序方式：" << endl;
+        cout << "1、按职工编号升序排序" << endl;
+        cout << "2、按职工编号降序排序" << endl;
+
+        int selected = 0;
+        cin >> selected;
+
+        // 通过选择排序进行
+        for (int i = 0; i < this->m_count; i++)
+        {
+            // 用一个变量来记录最大值或者最小值的下标
+            int min_or_max_index = i;
+
+            for (int j = i + 1; j < this->m_count; j++)
+            {
+                // 判断是升序还是降序
+                if (selected == 1)
+                {
+                    // 升序排序
+                    if (this->m_employees[min_or_max_index]->m_no > this->m_employees[j]->m_no)
+                    {
+                        // 更新下标
+                        min_or_max_index = j;
+                    }
+                }
+                else
+                {
+                    // 降序排序
+                    if (this->m_employees[min_or_max_index]->m_no < this->m_employees[j]->m_no)
+                    {
+                        min_or_max_index = j;
+                    }
+                }
+            }
+
+            // 判断是否要重新覆盖 min_or_max_index
+            if (i != min_or_max_index)
+            {
+                // 交换
+                Worker *temp = this->m_employees[min_or_max_index];
+                this->m_employees[min_or_max_index] = this->m_employees[i];
+                this->m_employees[i] = temp;
+            }
+        }
+
+        // 将排序后的结果保存到文件中
+        this->save();
+        cout << "排序成功， 排序后的结果为：" << endl;
+        this->show_employees();
     }
 }

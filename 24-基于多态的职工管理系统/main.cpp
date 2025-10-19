@@ -51,6 +51,7 @@ int main(int argc, const char *argv[])
             break;
         case 6:
             // 排序
+            wkm.sort_employees();
             break;
         case 7:
             // 清空
