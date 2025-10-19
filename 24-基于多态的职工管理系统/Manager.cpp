@@ -15,7 +15,7 @@ Manager::Manager(int _no, string _name, int _deptNo) {
 }
 void Manager::showInfo() {
     cout << "员工编号：" << setfill(' ') << left << setw(10) << this->m_no
-         << "员工姓名：" << setfill(' ') << left << setw(10) << this->m_name
+         << "员工姓名：" << setfill(' ') << left << setw(20) << this->m_name
          << "员工部门编号：" << this->m_dept_no << endl;
 }
 string Manager::getDeptName() { return string("经理"); }
