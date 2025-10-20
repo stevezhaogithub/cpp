@@ -55,6 +55,7 @@ int main(int argc, const char *argv[])
             break;
         case 7:
             // 清空
+            wkm.clean_file();
             break;
         default:
             // 输入错误

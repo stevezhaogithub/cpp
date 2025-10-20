@@ -75,8 +75,19 @@ WorkerManager::~WorkerManager()
     // 释放堆区数据
     if (this->m_employees != NULL)
     {
+
+        // 循环清除每个对象的内存，然后再销毁数组的内存
+        for (int i = 0; i < this->m_count; i++)
+        {
+            if (this->m_employees[i] != NULL)
+            {
+                delete this->m_employees[i];
+            }
+        }
+
         delete[] this->m_employees;
         this->m_employees = NULL;
+        this->m_count = 0;
     }
 }
 
@@ -522,5 +533,51 @@ void WorkerManager::sort_employees()
         this->save();
         cout << "排序成功， 排序后的结果为：" << endl;
         this->show_employees();
+    }
+}
+
+// 清空数据
+void WorkerManager::clean_file()
+{
+    // 确认
+    cout << "确认清空？" << endl;
+    cout << "1、确认" << endl;
+    cout << "2、返回" << endl;
+    int selected;
+    cin >> selected;
+
+    if (selected == 1)
+    {
+        // 进行清空数据的操作
+        // 1. 清空本地数据文件
+        ofstream ofs(FILENAME, ios::trunc);
+        ofs.close();
+
+        // 2. 清空内存中的数据
+        if (this->m_employees != NULL)
+        {
+            // 循环清空每个对象
+            for (int i = 0; i < this->m_count; i++)
+            {
+                if (this->m_employees[i] != NULL)
+                {
+                    delete this->m_employees[i];
+                }
+            }
+            this->m_count = 0;
+            // 回收数组内存
+            delete[] this->m_employees;
+        }
+
+        cout << "数据文件已经清空！" << endl;
+        cout << "按 Enter 键继续..." << endl;
+        cin.ignore();
+        cin.get();
+        system("clear");
+    }
+    else
+    {
+        // 这里什么都不做是不是就很 OK？
+        // system("clear")
     }
 }
