@@ -1,5 +1,0 @@
-9999      米老鼠           2         
-1111      shidifu             1         
-1005      larry               2         
-1004      cherry              1         
-1002      bob                 2         
