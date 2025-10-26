@@ -106,6 +106,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AA7E2E8E2E9F9C1D00FF1463 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AAB1E6FC2E83ED070027A035 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +237,7 @@
 		AA60D3A42E8A9D3D00965453 /* 04-全局区（内存） */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "04-全局区（内存）"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA60D3AF2E8AA32000965453 /* 05-栈区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "05-栈区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA60D3BA2E8AA63C00965453 /* 06-堆区内存 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "06-堆区内存"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7E2E902E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "24-基于多态的职工管理系统"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB1E6FE2E83ED070027A035 /* LearnCPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnCPP; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABA476F2E97B7B100197A0E /* 15-对象初始化和清理 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "15-对象初始化和清理"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABA477A2E97E0D000197A0E /* 16-拷贝构造函数调用时机 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "16-拷贝构造函数调用时机"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,6 +306,11 @@
 		AA60D3BB2E8AA63C00965453 /* 06-堆区内存 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "06-堆区内存";
+			sourceTree = "<group>";
+		};
+		AA7E2E912E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "24-基于多态的职工管理系统";
 			sourceTree = "<group>";
 		};
 		AAB1E7002E83ED070027A035 /* LearnCPP */ = {
@@ -438,6 +453,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA7E2E8D2E9F9C1D00FF1463 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAB1E6FB2E83ED070027A035 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -551,6 +573,7 @@
 				AABA47B22E9900CE00197A0E /* 21-C++对象模型和this指针 */,
 				AABA47BD2E9924A000197A0E /* 22-空指针访问成员函数 */,
 				AABA47FD2E99343200197A0E /* 23-友元 */,
+				AA7E2E912E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */,
 				AAB1E6FF2E83ED070027A035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -581,6 +604,7 @@
 				AABA47B12E9900CE00197A0E /* 21-C++对象模型和this指针 */,
 				AABA47BC2E9924A000197A0E /* 22-空指针访问成员函数 */,
 				AABA47FC2E99343200197A0E /* 23-友元 */,
+				AA7E2E902E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -828,6 +852,28 @@
 			);
 			productName = "06-堆区内存";
 			productReference = AA60D3BA2E8AA63C00965453 /* 06-堆区内存 */;
+			productType = "com.apple.product-type.tool";
+		};
+		AA7E2E8F2E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA7E2E962E9F9C1D00FF1463 /* Build configuration list for PBXNativeTarget "24-基于多态的职工管理系统" */;
+			buildPhases = (
+				AA7E2E8C2E9F9C1D00FF1463 /* Sources */,
+				AA7E2E8D2E9F9C1D00FF1463 /* Frameworks */,
+				AA7E2E8E2E9F9C1D00FF1463 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA7E2E912E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */,
+			);
+			name = "24-基于多态的职工管理系统";
+			packageProductDependencies = (
+			);
+			productName = "24-基于多态的职工管理系统";
+			productReference = AA7E2E902E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */;
 			productType = "com.apple.product-type.tool";
 		};
 		AAB1E6FD2E83ED070027A035 /* LearnCPP */ = {
@@ -1136,6 +1182,9 @@
 					AA60D3B92E8AA63C00965453 = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					AA7E2E8F2E9F9C1D00FF1463 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					AAB1E6FD2E83ED070027A035 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -1211,6 +1260,7 @@
 				AABA47B02E9900CE00197A0E /* 21-C++对象模型和this指针 */,
 				AABA47BB2E9924A000197A0E /* 22-空指针访问成员函数 */,
 				AABA47FB2E99343200197A0E /* 23-友元 */,
+				AA7E2E8F2E9F9C1D00FF1463 /* 24-基于多态的职工管理系统 */,
 			);
 		};
 /* End PBXProject section */
@@ -1287,6 +1337,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AA60D3B62E8AA63C00965453 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7E2E8C2E9F9C1D00FF1463 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1591,6 +1648,26 @@
 			name = Debug;
 		};
 		AA60D3C02E8AA63C00965453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA7E2E942E9F9C1D00FF1463 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WZA497Y6EH;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA7E2E952E9F9C1D00FF1463 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -2055,6 +2132,15 @@
 			buildConfigurations = (
 				AA60D3BF2E8AA63C00965453 /* Debug */,
 				AA60D3C02E8AA63C00965453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA7E2E962E9F9C1D00FF1463 /* Build configuration list for PBXNativeTarget "24-基于多态的职工管理系统" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA7E2E942E9F9C1D00FF1463 /* Debug */,
+				AA7E2E952E9F9C1D00FF1463 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
