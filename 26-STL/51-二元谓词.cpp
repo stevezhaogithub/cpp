@@ -6,6 +6,8 @@ using namespace std;
 class MyCompare
 {
 public:
+    // 返回值 bool：表示是谓词
+    // 两个参数，表示是二元谓词
     bool operator()(int a, int b)
     {
         return a > b;
