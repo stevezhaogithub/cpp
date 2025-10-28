@@ -21,11 +21,25 @@ void test01()
     mp.insert(map<int, int>::value_type(3, 30));
     // 第四种：不建议使用这种方式插入，但是可以使用这种方式遍历
     mp[4] = 40;
-
     print_map(mp);
+    cout << " ----------------- " << endl;
 
     // 没有 key = 5, 的键值对。但是这里确实能输出是 0
-    cout << mp[5] << endl;
+    // cout << mp[5] << endl;
+
+    // 删除, 根据迭代器删除
+    mp.erase(mp.begin());
+    print_map(mp);
+    cout << " ----------------- " << endl;
+
+    // 根据 "键" 删除, 不是按照值删除
+    mp.erase(3);
+    print_map(mp);
+
+    cout << " ----------------- " << endl;
+    // 按照区间删除
+    mp.erase(mp.begin(), mp.end());
+    print_map(mp);
 }
 int main()
 {
