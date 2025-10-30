@@ -65,9 +65,46 @@ void test02()
     for_each(v.begin(), v.end(), MyPrint());
     cout << endl;
 }
+
+// 一元谓词
+class GT30
+{
+public:
+    bool operator()(int d)
+    {
+        return d >= 30;
+    }
+};
+
+// 按条件替换: replace_if
+void test03()
+{
+    vector<int> v;
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+    v.push_back(40);
+    v.push_back(50);
+    v.push_back(50);
+    v.push_back(60);
+    v.push_back(70);
+
+    // 输出
+    for_each(v.begin(), v.end(), fn);
+    cout << endl;
+
+    // 将 >= 30 的替换成 3000
+    replace_if(v.begin(), v.end(), GT30(), 3000);
+
+    cout << "替换后：" << endl;
+    // 输出
+    for_each(v.begin(), v.end(), fn);
+    cout << endl;
+}
 int main()
 {
     // test01();
-    test02();
+    // test02();
+    test03();
     return 0;
 }
