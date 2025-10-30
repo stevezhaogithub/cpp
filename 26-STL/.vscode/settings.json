@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.dbclient-js": "javascript",
+        "ctime": "cpp",
+        "__config": "cpp",
+        "vector": "cpp"
+    }
+}
