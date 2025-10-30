@@ -9,6 +9,7 @@
 #include <numeric>
 using namespace std;
 
+// accumulate()算法
 void test01()
 {
     vector<int> v;
@@ -21,8 +22,26 @@ void test01()
     int total = accumulate(v.begin(), v.end(), 0);
     cout << "sum = " << total << endl;
 }
+
+void fn(int d)
+{
+    cout << d << " ";
+}
+
+// fill() 算法, #include <numeric>
+void test02()
+{
+    vector<int> v;
+    v.resize(10);
+
+    // 重新填充
+    fill(v.begin(), v.end(), 1001);
+    for_each(v.begin(), v.end(), fn);
+    cout << endl;
+}
 int main()
 {
-    test01();
+    // test01();
+    test02();
     return 0;
 }
