@@ -80,11 +80,36 @@ void test02()
     print_vector(v);
 }
 
+// merge 算法
+void test03()
+{
+    srand((unsigned int)time(NULL));
+    vector<int> v1;
+    vector<int> v2;
+
+    for (int i = 0; i < 10; i++)
+    {
+        v1.push_back(i);
+        v2.push_back((i + 1));
+    }
+
+    // 目标容器
+    vector<int> v_target;
+    // 为 v_target 分配大小
+    v_target.resize(v1.size() + v2.size());
+    // 合并后还是一个有序序列
+    merge(v1.begin(), v1.end(), v2.begin(), v2.end(), v_target.begin());
+
+    // 遍历输出 v_target
+    for_each(v_target.begin(), v_target.end(), fn);
+    cout << endl;
+}
+
 int main()
 {
-    // 设置一个随机种子
-    srand((unsigned int)time(NULL));
+
     // test01();
-    test02();
+    // test02();
+    test03();
     return 0;
 }
