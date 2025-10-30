@@ -101,10 +101,51 @@ void test03()
     for_each(v.begin(), v.end(), fn);
     cout << endl;
 }
+
+void print_vectorInt(const vector<int> &v)
+{
+    for (vector<int>::const_iterator it = v.begin(); it != v.end(); ++it)
+    {
+        cout << *it << " ";
+    }
+    cout << endl;
+}
+
+// swap()
+void test04()
+{
+    vector<int> v;
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+    v.push_back(40);
+
+    vector<int> v2;
+    v2.push_back(1);
+    v2.push_back(2);
+    v2.push_back(3);
+    v2.push_back(4);
+    v2.push_back(5);
+    v2.push_back(6);
+
+    cout << "v1:" << endl;
+    print_vectorInt(v);
+    cout << "v2:" << endl;
+    print_vectorInt(v2);
+
+    v.swap(v2);
+
+    cout << "交换后：" << endl;
+    cout << "v1:" << endl;
+    print_vectorInt(v);
+    cout << "v2:" << endl;
+    print_vectorInt(v2);
+}
 int main()
 {
     // test01();
     // test02();
-    test03();
+    // test03();
+    test04();
     return 0;
 }
