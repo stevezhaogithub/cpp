@@ -40,6 +40,10 @@
         "typeinfo": "cpp",
         "unordered_map": "cpp",
         "utility": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "list": "cpp",
+        "set": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     }
 }
