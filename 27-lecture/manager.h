@@ -2,6 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <algorithm>
+#include <random>
+#include <deque>
+#include <numeric>
+#include <iomanip>
 #include "speaker.h"
 using namespace std;
 
@@ -40,4 +45,13 @@ public:
 
     // 创建选手
     void createSpeakers();
+
+    // 开始演讲比赛
+    void start_contest();
+
+    // 抽签
+    void draw_lots();
+
+    // 开始淘汰赛
+    void start_knock_out();
 };

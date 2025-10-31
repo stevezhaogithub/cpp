@@ -34,6 +34,7 @@ int main()
             break;
         case 1:
             // 开始比赛
+            sm.start_contest();
             break;
         case 2:
             // 查看往届比赛记录
