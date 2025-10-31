@@ -5,6 +5,7 @@
 
 */
 #include <iostream>
+#include <string>
 #include "manager.h"
 using namespace std;
 
