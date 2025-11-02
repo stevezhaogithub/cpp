@@ -107,6 +107,9 @@ void SpeechManager::draw_lots()
         cout << endl;
     }
     cout << "------------------------------------------------------------------------------" << endl;
+    cout << "按 Enter 键继续..." << endl;
+    cin.ignore();
+    cin.get();
 }
 
 // 开始演讲比赛
@@ -133,6 +136,13 @@ void SpeechManager::start_contest()
 void SpeechManager::start_knock_out()
 {
     cout << "---------- 第 " << this->m_round_count << " 轮比赛正式开始！----------" << endl;
+
+    // 准备临时容器，存放小组成绩(key: 具体得分, value: 选手编号)
+    multimap<double, int, greater<double>> group_score;
+
+    // 统计人员个数，每 6 个人一组
+    int player_count = 0;
+
     vector<int> v_source; // 比赛选手容器
     if (this->m_round_count == 1)
     {
@@ -148,6 +158,8 @@ void SpeechManager::start_knock_out()
     // 遍历所有选手进行比赛
     for (vector<int>::iterator it = v_source.begin(); it != v_source.end(); ++it)
     {
+        player_count++;
+
         // 评委打分 deque 容器
         deque<double> deq;
         for (int i = 0; i < 10; i++)
@@ -155,10 +167,14 @@ void SpeechManager::start_knock_out()
             // 产生一个 [60,100] 的随机数
             double _score = (rand() % 401 + 600) / 10.0f;
             // 设置每个小数显示2位小数
-            cout << "得分：" << fixed << setprecision(2) << _score << " ";
+            // --------------- 调试信息 ------------------
+            // cout << "得分：" << fixed << setprecision(2) << _score << " ";
+            // cout << "得分：" << _score << " ";
+
             deq.push_back(_score);
         }
-        cout << endl;
+        // --------------- 调试信息 ------------------
+        // cout << endl;
         // 将 deq 中的数据降序排序
         sort(deq.begin(), deq.end(), greater<double>());
         // 去除最高分
@@ -170,12 +186,49 @@ void SpeechManager::start_knock_out()
         double sum = accumulate(deq.begin(), deq.end(), 0.0);
         // 计算平均分
         double avg = sum / static_cast<double>(deq.size());
+        // --------------- 调试信息 ------------------
+        // cout << "-------------" << avg << "-----------" << endl;
 
         // 输出每个人的平均分
-        cout << "编号: " << *it << ", 姓名: " << this->m_speakers[*it].m_name << ", 平均分: " << avg << endl
-             << endl;
+        // --------------- 调试信息 ------------------
+        // cout << "编号: " << *it << ", 姓名: " << this->m_speakers[*it].m_name << ", 平均分: " << avg << endl << endl;
 
         // 将平均分放入到 map 容器里
         this->m_speakers[*it].m_scores[this->m_round_count - 1] = avg;
+
+        // 将打分数据放入到临时小组容器中
+        group_score.insert(make_pair(avg, *it));
+
+        // 每 6 个人取前三名
+        if (player_count % 6 == 0)
+        {
+            cout << endl;
+            cout << "第 " << (player_count / 6) << " 小组比赛名次：" << endl;
+            for (multimap<double, int, greater<double>>::iterator mit = group_score.begin(); mit != group_score.end(); ++mit)
+            {
+                cout << "编号:" << mit->second << ", 姓名: " << this->m_speakers[mit->second].m_name << ", 成绩: " << this->m_speakers[mit->second].m_scores[this->m_round_count - 1] << endl;
+            }
+
+            // 取走前三名
+            int top3_count = 0;
+            for (multimap<double, int, greater<double>>::iterator mit = group_score.begin(); mit != group_score.end(); ++mit)
+            {
+                // 如果是第一轮比赛
+                if (this->m_round_count == 1)
+                {
+                    v2.push_back(mit->second);
+                }
+                else
+                {
+                    v1.push_back(mit->second);
+                }
+            }
+
+            // 临时容器清空
+            group_score.clear();
+            // cout << "==========================================" << endl;
+        }
     }
+
+    cout << "------------第 " << this->m_round_count << " 轮比赛完毕！-----------" << endl;
 }
