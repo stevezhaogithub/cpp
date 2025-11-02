@@ -123,6 +123,7 @@ void SpeechManager::start_contest()
     start_knock_out();
 
     // 1.3 显示晋级结果
+    show_scores();
 
     // 2. 第二轮比赛
     // 2.1 抽签
@@ -211,16 +212,18 @@ void SpeechManager::start_knock_out()
 
             // 取走前三名
             int top3_count = 0;
-            for (multimap<double, int, greater<double>>::iterator mit = group_score.begin(); mit != group_score.end(); ++mit)
+            for (multimap<double, int, greater<double>>::iterator mit = group_score.begin(); mit != group_score.end() && top3_count < 3; ++mit, top3_count++)
             {
                 // 如果是第一轮比赛
                 if (this->m_round_count == 1)
                 {
+                    // 如果是第一轮比赛结束，则将前三名放入到 v2 容器中
                     v2.push_back(mit->second);
                 }
                 else
                 {
-                    v1.push_back(mit->second);
+                    // 如果是第二轮比赛结束，则将前三名放入到 v_victory 容器中
+                    v_victory.push_back(mit->second);
                 }
             }
 
@@ -231,4 +234,37 @@ void SpeechManager::start_knock_out()
     }
 
     cout << "------------第 " << this->m_round_count << " 轮比赛完毕！-----------" << endl;
+}
+
+// 显示得分
+void SpeechManager::show_scores()
+{
+    cout << "第 " << this->m_round_count << " 轮晋级的选手信息如下：" << endl;
+    vector<int> v;
+    // 判断是第几轮，如果是第一轮，要显示的是 v2 中的信息，如果是第二轮结束，要显示的是 v_victory 中的信息
+    if (this->m_round_count == 1)
+    {
+        v = v2;
+    }
+    else
+    {
+        v = v_victory;
+    }
+    // cout << "::::::::::::::::::" << v.size() << ":::::::::::::::::" << endl;
+
+    // 遍历显示
+    for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+    {
+        cout << "编号: " << *it << ", 姓名: " << this->m_speakers[*it].m_name << ", 得分: "
+             << this->m_speakers[*it].m_scores[this->m_round_count - 1] << endl;
+    }
+    cout << endl;
+    cout << "按 Enter 键继续..." << endl;
+    // 不是在 cin << bianliang; 之后使用 cin.get() 所以不需要用 cin.ignore();
+    // cin.ignore();
+    cin.get();
+    system("clear");
+
+    // 重新显示菜单
+    this->show_menu();
 }

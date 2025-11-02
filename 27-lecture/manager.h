@@ -54,4 +54,7 @@ public:
 
     // 开始淘汰赛
     void start_knock_out();
+
+    // 显示得分
+    void show_scores();
 };
