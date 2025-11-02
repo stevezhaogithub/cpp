@@ -28,8 +28,10 @@ int main()
     {
         // 显示菜单
         sm.show_menu();
+        cout << "请选择数字：";
         // 接收用户的输入
         cin >> selected;
+        cin.ignore(); // 忽略缓冲区中的 \n
         switch (selected)
         {
         case 0:

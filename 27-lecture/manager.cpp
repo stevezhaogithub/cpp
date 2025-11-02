@@ -35,7 +35,6 @@ void SpeechManager::show_menu()
     cout << "***************** 3. 清空比赛记录 ****************" << endl;
     cout << "***************** 0. 退出比赛程序 ****************" << endl;
     cout << "-------------------------------------------------" << endl;
-    cout << "请选择数字：";
 }
 
 // 退出系统
@@ -108,7 +107,6 @@ void SpeechManager::draw_lots()
     }
     cout << "------------------------------------------------------------------------------" << endl;
     cout << "按 Enter 键继续..." << endl;
-    cin.ignore();
     cin.get();
 }
 
@@ -126,9 +124,15 @@ void SpeechManager::start_contest()
     show_scores();
 
     // 2. 第二轮比赛
+    this->m_round_count++;
+
     // 2.1 抽签
+    draw_lots();
     // 2.2 比赛
+    start_knock_out();
+
     // 2.3 显示最终结果
+    show_scores();
 
     // 4. 保存分数到文件中
 }
