@@ -6,11 +6,16 @@
 */
 #include <iostream>
 #include <string>
+#include <ctime>
 #include "manager.h"
 using namespace std;
 
 int main()
 {
+
+    // 设置随机数种子
+    srand((unsigned int)time(NULL));
+
     SpeechManager sm;
 
     // // 测试
@@ -24,8 +29,10 @@ int main()
     {
         // 显示菜单
         sm.show_menu();
+        cout << "请选择数字：";
         // 接收用户的输入
         cin >> selected;
+        cin.ignore(); // 忽略缓冲区中的 \n, 为后续 使用 cin.get() 等待用户输入 Enter 键做准备
         switch (selected)
         {
         case 0:
@@ -38,9 +45,11 @@ int main()
             break;
         case 2:
             // 查看往届比赛记录
+            sm.show_records();
             break;
         case 3:
             // 清空比赛记录
+            sm.clear_records();
             break;
         default:
             // 输入有误
