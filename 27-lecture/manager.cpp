@@ -5,6 +5,9 @@ SpeechManager::SpeechManager()
     // 初始化容器和属性
     this->init_data();
     this->createSpeakers();
+
+    // 加载往届记录
+    this->load_records();
 }
 
 // 析构函数
@@ -20,6 +23,8 @@ void SpeechManager::init_data()
     this->v2.clear();
     this->v_victory.clear();
     this->m_speakers.clear();
+    // 将加载的 records 记录集合也清空
+    this->m_records.clear();
 
     // 2. 初始化比赛轮数
     this->m_round_count = 1;
@@ -113,6 +118,11 @@ void SpeechManager::draw_lots()
 // 开始演讲比赛
 void SpeechManager::start_contest()
 {
+    // --------- 重新初始化数据 ------------
+    // 初始化容器和属性
+    this->init_data();
+    this->createSpeakers();
+
     // 1. 第一轮比赛
     // 1.1 抽签
     draw_lots();
@@ -135,6 +145,11 @@ void SpeechManager::start_contest()
     show_scores();
 
     // 4. 保存分数到文件中
+    save_records();
+    cout << "本届比赛完毕！" << endl;
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
 
 // 开始淘汰赛
@@ -271,4 +286,129 @@ void SpeechManager::show_scores()
 
     // 重新显示菜单
     this->show_menu();
+}
+
+// 将比赛数据写入文件
+void SpeechManager::save_records()
+{
+    ofstream ofs;
+    // ios::app, 表示 append
+    ofs.open("lecture.csv", ios::out | ios::app);
+    // 将每个人的数据写入到文件中
+    for (vector<int>::iterator it = v_victory.begin(); it != v_victory.end(); ++it)
+    {
+        // m_scores[1], 表示第二轮成绩
+        ofs << *it << "," << this->m_speakers[*it].m_scores[1] << ",";
+    }
+    ofs << endl;
+
+    // 关闭文件
+    ofs.close();
+    cout << "记录已经保存" << endl;
+    this->is_file_empty = false;
+}
+
+// 加载记录分数(从文件中读取)
+void SpeechManager::load_records()
+{
+    this->m_records.clear();
+    // 1. 创建文件读取流
+    ifstream ifs("lecture.csv", ios::in);
+
+    // 2. 检查文件是否打开成功
+    if (!ifs.is_open())
+    {
+        // 如果文件打开失败，则认为文件不存在！
+        // 如果文件不存在，则设置 is_file_empty = true
+        this->is_file_empty = true;
+        // cout << "文件不存在！" << endl;
+        ifs.close();
+        return;
+    }
+
+    // 判断文件是否为空
+    char ch;
+    ifs >> ch; // 先读取一个字符
+    // 如果读取一个字符后，立即遇到文件尾，则表示文件为空
+    if (ifs.eof())
+    {
+        // cout << "文件为空！" << endl;
+        this->is_file_empty = true;
+        ifs.close();
+        return;
+    }
+
+    // 如果文件存在 且 文件不为空
+    this->is_file_empty = false;
+    // 将测试读取的单个字符放回去
+    ifs.putback(ch);
+
+    string line_data; // 保存从文件中读取的每行数据
+    int idx = 0;      // 记录届数, 从 0 开始
+
+    // 从文件中逐行读取数据
+    while (ifs >> line_data)
+    {
+        // 输出刚才读取到的数据（调试用)
+        // cout << line_data << endl;
+
+        // 创建向量, 存放解析后的字段数据
+        vector<string> v;
+        int pos = -1;  // 记录逗号的位置
+        int start = 0; // 当前解析的起始位置
+
+        // 解析逗号分隔的数据
+        while (true)
+        {
+            // 从 start 位置开始找 , 出现的索引
+            pos = line_data.find(",", start);
+            if (pos == -1)
+            {
+                break; // 表示没有找到 ,
+            }
+            // 如果找到了 "," 则根据 "," 进行分割
+            string temp = line_data.substr(start, pos - start);
+            v.push_back(temp); // 将解析到的字段数据添加到 v 向量中
+            // cout << temp << endl;
+            start = pos + 1;
+        }
+
+        // 将解析出的数据存储历史记录映射表
+        // key: 届数索引, value: 该届比赛前三名选手的编号和得分
+        this->m_records.insert(make_pair(idx, v));
+        idx++; // 届数递增
+    }
+    ifs.close(); // 关闭文件流
+
+    // // 调试信息
+    // // 遍历 map 容器
+    // for (map<int, vector<string>>::iterator it = m_records.begin(); it != m_records.end(); ++it)
+    // {
+    //     cout << "冠军编号：" << it->first << ", 分数: " << it->second[0] << endl;
+    // }
+}
+
+// 查看记录功能
+void SpeechManager::show_records()
+{
+    // 如果程序没有退出, 只在构造函数的时候 load_records() 一次，此处没有执行 load_records() ，所以查不到数据
+    this->load_records();
+
+    // 判断如果文件不存在的话提示
+    if (this->is_file_empty)
+    {
+        cout << "数据文件不存在，或数据文件为空！" << endl;
+    }
+
+    // cout << "-----" << this->m_records.size() << "-----" << endl;
+    // 遍历每届比赛
+    for (int i = 0; i < this->m_records.size(); i++)
+    {
+        cout << "第 " << (i + 1) << " 届" << "冠军🏆编号: " << this->m_records[i][0] << ", 得分: " << this->m_records[i][1]
+             << "; 亚军🥈编号: " << this->m_records[i][2] << ", 得分: " << this->m_records[i][3]
+             << "; 季军🥉编号: " << this->m_records[i][4] << ", 得分: " << this->m_records[i][5] << endl;
+    }
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }

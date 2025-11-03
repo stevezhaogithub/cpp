@@ -7,6 +7,7 @@
 #include <deque>
 #include <numeric>
 #include <iomanip>
+#include <fstream>
 #include "speaker.h"
 using namespace std;
 
@@ -57,4 +58,19 @@ public:
 
     // 显示得分
     void show_scores();
+
+    // 将比赛数据写入文件
+    void save_records();
+
+    // 加载记录分数(从文件中读取)
+    void load_records();
+
+    // 文件为空的标记
+    bool is_file_empty;
+
+    // 往届记录
+    map<int, vector<string>> m_records;
+
+    // 查看记录功能
+    void show_records();
 };
