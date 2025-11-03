@@ -49,6 +49,7 @@ int main()
             break;
         case 3:
             // 清空比赛记录
+            sm.clear_records();
             break;
         default:
             // 输入有误

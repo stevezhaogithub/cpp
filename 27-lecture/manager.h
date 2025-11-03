@@ -73,4 +73,7 @@ public:
 
     // 查看记录功能
     void show_records();
+
+    // 清空记录
+    void clear_records();
 };

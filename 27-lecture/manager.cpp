@@ -412,3 +412,29 @@ void SpeechManager::show_records()
     cin.get();
     system("clear");
 }
+
+// 清空记录
+void SpeechManager::clear_records()
+{
+    cout << "确认要清空？" << endl;
+    cout << "1、确认" << endl;
+    cout << "2、返回" << endl;
+
+    int selected = 0;
+    cin >> selected;
+    if (selected == 1)
+    {
+        // 清空: 读取 lecture.csv 文件并且清空该文件；同时清空内存数据
+        ofstream ofs("lecture.csv", ios::trunc);
+        ofs.close();
+        // 重新初始化程序
+        this->init_data();
+        this->createSpeakers();
+        this->load_records();
+        cout << "清空数据成功！" << endl;
+    }
+    cin.ignore();
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
+}
