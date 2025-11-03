@@ -39,6 +39,7 @@ int main()
             break;
         case 0:
             // 退出程序
+            cout << "欢迎下次使用！" << endl;
             exit(0);
             break;
         default:
