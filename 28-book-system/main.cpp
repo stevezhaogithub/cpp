@@ -106,6 +106,27 @@ void login(string _fname, int _role)
     else if (_role == 3)
     {
         // 管理员身份验证
+        string _rname, _rpwd; // 从文件中读取的姓名和密码
+        while (ifs >> _rname && ifs >> _rpwd)
+        {
+            // 调试信息
+            // cout << _rid << _rname << _rpwd << endl;
+            // 与用户输入的信息做对比
+            if (_name == _rname && _pwd == _rpwd)
+            {
+                cout << "管理员验证登录成功！" << endl;
+                cin.ignore();
+                cout << "按 Enter 键继续..." << endl;
+                cin.get();
+                system("clear");
+                // 创建学管理员对象
+                person = new Teacher(_id, _name, _pwd);
+                // 进入管理员身份的子菜单
+
+                // return
+                return;
+            }
+        }
     }
     cout << "验证登录失败！" << endl;
     cin.ignore();
