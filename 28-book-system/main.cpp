@@ -69,7 +69,7 @@ void login(string _fname, int _role)
                 cin.get();
                 system("clear");
                 // 创建学生对象
-                person = new Student(_id, _name, _pwd);
+                person = new Teacher(_id, _name, _pwd);
                 // 进入学生身份的子菜单
 
                 // return
@@ -80,6 +80,28 @@ void login(string _fname, int _role)
     else if (_role == 2)
     {
         // 教师身份验证
+        int _rid;             // 从文件中读取的 id
+        string _rname, _rpwd; // 从文件中读取的姓名和密码
+        while (ifs >> _rid && ifs >> _rname && ifs >> _rpwd)
+        {
+            // 调试信息
+            // cout << _rid << _rname << _rpwd << endl;
+            // 与用户输入的信息做对比
+            if (_id == _rid && _name == _rname && _pwd == _rpwd)
+            {
+                cout << "教师验证登录成功！" << endl;
+                cin.ignore();
+                cout << "按 Enter 键继续..." << endl;
+                cin.get();
+                system("clear");
+                // 创建学教师对象
+                person = new Teacher(_id, _name, _pwd);
+                // 进入教师身份的子菜单
+
+                // return
+                return;
+            }
+        }
     }
     else if (_role == 3)
     {
