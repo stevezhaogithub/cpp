@@ -3,6 +3,9 @@
 #include <string>
 #include "identity.h"
 #include "global_file.h"
+#include "student.h"
+#include "teacher.h"
+#include "administrator.h"
 using namespace std;
 
 // 登录功能
@@ -34,7 +37,7 @@ void login(string _fname, int _role)
     switch (_role)
     {
     case 1:
-        cout << "请输入学号: " << endl;
+        cout << "请输入学号: ";
         cin >> _id;
         break;
     case 2:
@@ -51,6 +54,28 @@ void login(string _fname, int _role)
     if (_role == 1)
     {
         // 学生身份验证
+        int _rid;             // 从文件中读取的 id
+        string _rname, _rpwd; // 从文件中读取的姓名和密码
+        while (ifs >> _rid && ifs >> _rname && ifs >> _rpwd)
+        {
+            // 调试信息
+            // cout << _rid << _rname << _rpwd << endl;
+            // 与用户输入的信息做对比
+            if (_id == _rid && _name == _rname && _pwd == _rpwd)
+            {
+                cout << "学生验证登录成功！" << endl;
+                cin.ignore();
+                cout << "按 Enter 键继续..." << endl;
+                cin.get();
+                system("clear");
+                // 创建学生对象
+                person = new Student(_id, _name, _pwd);
+                // 进入学生身份的子菜单
+
+                // return
+                return;
+            }
+        }
     }
     else if (_role == 2)
     {
