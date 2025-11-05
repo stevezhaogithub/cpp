@@ -27,6 +27,57 @@ void Administrator::show_menu()
 // 添加账号
 void Administrator::add_account()
 {
+
+    // _fname: 文件操作要操作的文件名; _tip 根据不同角色，显示不同的提示语
+    string _fname, _tip;
+    ofstream ofs;
+    int selected = 0;
+    while (true)
+    {
+        cout << "请输入要添加的账号类型" << endl;
+        cout << "1、添加学生" << endl;
+        cout << "2、添加老师" << endl;
+
+        cin >> selected;
+
+        // 添加学生
+        if (selected == 1)
+        {
+            _fname = STUDENT_FILE;
+            _tip = "请输入学号: ";
+            break;
+        }
+        else if (selected == 2)
+        {
+            _fname = TEACHER_FILE;
+            _tip = "请输入职工编号: ";
+            break;
+        }
+        else
+        {
+            cout << "输入有误, 请重新输入!" << endl;
+        }
+    }
+
+    // 写入流，并且是追加写入
+    ofs.open(_fname, ios::out | ios::app);
+    int _id;            // 学号 or 职工号
+    string _name, _pwd; // 姓名 和 密码
+    cout << _tip << endl;
+    cin >> _id;
+    cout << "请输入姓名: " << endl;
+    cin >> _name;
+    cout << "请输入密码: " << endl;
+    cin >> _pwd;
+
+    // 向文件中写入数据
+    ofs << _id << " " << _name << " " << _pwd << endl;
+    ofs.close();
+    cout << "添加记录成功！" << endl;
+    cin.ignore();
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
 
 // 查看账号

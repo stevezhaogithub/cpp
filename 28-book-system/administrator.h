@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include "identity.h"
+#include "global_file.h"
 using namespace std;
 
 // 管理员类
