@@ -1,8 +1,11 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "identity.h"
 #include "global_file.h"
+#include "student.h"
+#include "teacher.h"
 using namespace std;
 
 // 管理员类
@@ -29,4 +32,17 @@ public:
 
     // 清空预约
     void clear_reservations();
+
+    /**
+     * 添加账号的时候判断是否有重复
+     * 1. 初始化容器
+     * 2. 学生容器
+     * 3. 教师容器
+     */
+    // 1. 初始化容器
+    void init_vector();
+    // 2. 学生容器
+    vector<Student> v_stu;
+    // 3. 教师容器
+    vector<Teacher> v_tea;
 };

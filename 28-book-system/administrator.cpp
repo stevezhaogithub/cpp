@@ -9,6 +9,8 @@ Administrator::Administrator(string _name, string _pwd)
 {
     this->m_name = _name;
     this->m_passwd = _pwd;
+    // 初始化 v_stu 和 v_tea, 用来检测是否重复
+    this->init_vector();
 }
 
 // 显示管理员菜单
@@ -93,4 +95,49 @@ void Administrator::show_rooms()
 // 清空预约
 void Administrator::clear_reservations()
 {
+}
+/**
+ * 添加账号的时候判断是否有重复
+ * 1. 初始化容器
+ * 2. 学生容器
+ * 3. 教师容器
+ */
+// 1. 初始化容器
+void Administrator::init_vector()
+{
+    this->v_stu.clear();
+    this->v_tea.clear();
+
+    // 1. 读取学生文件
+    ifstream ifs;
+    ifs.open(STUDENT_FILE, ios::in);
+    if (!ifs.is_open())
+    {
+        cout << "学生文件读取失败！" << endl;
+        ifs.close();
+        return;
+    }
+    Student s;
+    while (ifs >> s.m_id && ifs >> s.m_name && ifs >> s.m_passwd)
+    {
+        this->v_stu.push_back(s);
+    }
+    cout << "当前的学生数量为: " << this->v_stu.size() << endl;
+    ifs.close();
+
+    // 2. 读取教师文件
+    ifs.open(TEACHER_FILE, ios::in);
+    if (!ifs.is_open())
+    {
+        cout << "教师文件读取失败！" << endl;
+        ifs.close();
+        return;
+    }
+    Teacher t;
+    while (ifs >> t.m_tid && ifs >> t.m_name && ifs >> t.m_passwd)
+    {
+        this->v_tea.push_back(t);
+    }
+    cout << "教师数量为: " << this->v_tea.size() << endl;
+    ifs.close();
 }
