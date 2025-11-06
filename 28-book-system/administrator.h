@@ -6,6 +6,7 @@
 #include "global_file.h"
 #include "student.h"
 #include "teacher.h"
+#include "computer_labs.h"
 using namespace std;
 
 // 管理员类
@@ -45,4 +46,13 @@ public:
     vector<Student> v_stu;
     // 3. 教师容器
     vector<Teacher> v_tea;
+
+    // 检测是否重复
+    bool check_repeat(int _id, int _role);
+
+    // 机房容器
+    vector<ComputerLab> v_labs;
+
+    // 初始化机房信息
+    void init_labs();
 };

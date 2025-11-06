@@ -1,6 +1,4 @@
-1 张三 123.com
-2 李四 123456.com
-3 steve 999
-4 bob 123
-5 Jerry 1234
-6 Tom 0987
+1 steve 123
+2 bob 456
+3 jerry 555
+4 李敏 777

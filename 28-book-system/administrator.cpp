@@ -11,6 +11,32 @@ Administrator::Administrator(string _name, string _pwd)
     this->m_passwd = _pwd;
     // 初始化 v_stu 和 v_tea, 用来检测是否重复
     this->init_vector();
+
+    // 初始化机房信息
+    this->init_labs();
+}
+// 初始化机房信息
+void Administrator::init_labs()
+{
+    // 获取机房信息（从文件中读取)
+    ifstream ifs;
+    ifs.open(ROOM_FILE, ios::in);
+    if (!ifs.is_open())
+    {
+        cout << "加载机房文件失败！" << endl;
+        ifs.close();
+    }
+    else
+    {
+        ComputerLab lab;
+        while (ifs >> lab.m_lab_id && ifs >> lab.m_max_computers)
+        {
+            this->v_labs.push_back(lab);
+        }
+
+        cout << "当前机房数量为: " << v_labs.size() << endl;
+        ifs.close();
+    }
 }
 
 // 显示管理员菜单
@@ -31,8 +57,10 @@ void Administrator::add_account()
 {
 
     // _fname: 文件操作要操作的文件名; _tip 根据不同角色，显示不同的提示语
-    string _fname, _tip;
+    // _err_tips: 表示重复后的错误提示
+    string _fname, _tip, _err_tips;
     ofstream ofs;
+
     int selected = 0;
     while (true)
     {
@@ -47,12 +75,14 @@ void Administrator::add_account()
         {
             _fname = STUDENT_FILE;
             _tip = "请输入学号: ";
+            _err_tips = "学号重复, 请重新输入: ";
             break;
         }
         else if (selected == 2)
         {
             _fname = TEACHER_FILE;
             _tip = "请输入职工编号: ";
+            _err_tips = "职工号重复, 请重新输入: ";
             break;
         }
         else
@@ -65,8 +95,22 @@ void Administrator::add_account()
     ofs.open(_fname, ios::out | ios::app);
     int _id;            // 学号 or 职工号
     string _name, _pwd; // 姓名 和 密码
-    cout << _tip << endl;
-    cin >> _id;
+    while (true)
+    {
+        cout << _tip << endl;
+        cin >> _id;
+        bool ret = this->check_repeat(_id, selected);
+        if (ret)
+        {
+            cout << _err_tips << endl;
+        }
+        else
+        {
+            // 如果没有重复, 直接退出输入循环
+            break;
+        }
+    }
+
     cout << "请输入姓名: " << endl;
     cin >> _name;
     cout << "请输入密码: " << endl;
@@ -76,25 +120,42 @@ void Administrator::add_account()
     ofs << _id << " " << _name << " " << _pwd << endl;
     ofs.close();
     cout << "添加记录成功！" << endl;
+
+    // 重新加载一下文件中的数据到 vector 中
+    this->init_vector();
+
     cin.ignore();
     cout << "按 Enter 键继续..." << endl;
     cin.get();
     system("clear");
 }
 
-// 查看账号
-void Administrator::show_accounts()
-{
-}
-
 // 查看机房信息
 void Administrator::show_rooms()
 {
+    // 机房信息在 labs.txt 文件中
+    cout << "机房信息如下: " << endl;
+    for (vector<ComputerLab>::iterator it = v_labs.begin(); it != v_labs.end(); ++it)
+    {
+        cout << "机房编号: " << it->m_lab_id << ", 机房容量: " << it->m_max_computers << endl;
+    }
+
+    cin.ignore();
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
 
 // 清空预约
 void Administrator::clear_reservations()
 {
+    ofstream ofs(RESERVATION_FILE, ios::trunc);
+    ofs.close();
+    cout << "清空成功！" << endl;
+    cin.ignore();
+    cout << "请按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
 /**
  * 添加账号的时候判断是否有重复
@@ -140,4 +201,79 @@ void Administrator::init_vector()
     }
     cout << "教师数量为: " << this->v_tea.size() << endl;
     ifs.close();
+}
+
+// 检测是否重复
+bool Administrator::check_repeat(int _id, int _role)
+{
+    // 表示是学生角色
+    if (_role == 1)
+    {
+        for (vector<Student>::iterator it = this->v_stu.begin(); it != this->v_stu.end(); ++it)
+        {
+            if (_id == it->m_id)
+            {
+                // 表示找到重复值了
+                return true;
+            }
+        }
+    }
+    else if (_role == 2)
+    {
+        // 表示是教师角色
+        for (vector<Teacher>::iterator it = this->v_tea.begin(); it != this->v_tea.end(); ++it)
+        {
+            if (_id == it->m_tid)
+            {
+                // 表示找到重复值了
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+// 显示学生信息
+void print_student(Student &s)
+{
+    cout << "学号: " << s.m_id << ", 姓名: " << s.m_name
+         << ", 密码: " << s.m_passwd << endl;
+}
+
+// 显示教师信息
+void print_teacher(Teacher &t)
+{
+    cout << "职工号: " << t.m_tid << ", 姓名: " << t.m_name
+         << ", 密码: " << t.m_passwd << endl;
+}
+
+// 查看账号信息
+void Administrator::show_accounts()
+{
+    cout << "选择要查看的内容: " << endl;
+    cout << "1、查看所有学生: " << endl;
+    cout << "2、查看所有教师: " << endl;
+
+    int selected = 0;
+    cin >> selected;
+
+    if (selected == 1)
+    {
+        cout << "所有学生信息如下: " << endl;
+        for_each(v_stu.begin(), v_stu.end(), print_student);
+    }
+    else if (selected == 2)
+    {
+        cout << "所有教师信息如下: " << endl;
+        for_each(v_tea.begin(), v_tea.end(), print_teacher);
+    }
+    else
+    {
+        cout << "输入有误！" << endl;
+    }
+
+    cin.ignore(); // 因为前面有输入, 所以要添加这行代码
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
