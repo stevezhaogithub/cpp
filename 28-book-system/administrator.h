@@ -45,4 +45,7 @@ public:
     vector<Student> v_stu;
     // 3. 教师容器
     vector<Teacher> v_tea;
+
+    // 检测是否重复
+    bool check_repeat(int _id, int _role);
 };
