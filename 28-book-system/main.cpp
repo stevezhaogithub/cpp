@@ -8,6 +8,57 @@
 #include "administrator.h"
 using namespace std;
 
+// 进入学生子菜单界面
+void student_menu(Identity *&_iden)
+{
+    while (true)
+    {
+        // 调用学生的子菜单
+        _iden->show_menu();
+
+        // 将父类指针转换为子类指针
+        Student *stu = (Student *)_iden;
+
+        // 接收用户的输入选项
+        int selected = 0;
+        cin >> selected;
+
+        if (selected == 1)
+        {
+            // 申请预约
+            stu->book_room();
+        }
+        else if (selected == 2)
+        {
+            // 查看自身的预约
+            stu->show_my_reservation();
+        }
+        else if (selected == 3)
+        {
+            // 查看所有人的预约
+            stu->show_reservations();
+        }
+        else if (selected == 4)
+        {
+            // 取消预约
+            stu->cancel_reservation();
+        }
+        else
+        {
+            // selected == 0
+            // 注销登录
+            delete stu;
+            cout << "注销成功！" << endl;
+            // cin.ignore();
+            cout << "按 Enter 键继续..." << endl;
+            cin.get();
+
+            system("clear");
+            break; // 此处如果不加 break, 那么注销后会死循环
+        }
+    }
+}
+
 // 进入管理员的子菜单界面
 void admin_menu(Identity *&_iden)
 {
@@ -122,9 +173,10 @@ void login(string _fname, int _role)
                 system("clear");
                 // 创建学生对象
                 person = new Student(_id, _name, _pwd);
-                // 进入学生身份的子菜单
 
-                // return
+                // 进入学生身份的子菜单
+                student_menu(person);
+
                 return;
             }
         }

@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include <fstream>
+#include "computer_labs.h"
 #include "identity.h"
+#include "global_file.h"
 using namespace std;
 
 class Student : public Identity
@@ -19,6 +23,9 @@ public:
     void book_room();
 
     // 查看我的预约
+    void show_my_reservation();
+
+    // 查看所有人的预约
     void show_reservations();
 
     // 取消预约
@@ -26,4 +33,7 @@ public:
 
     // 学生学号
     int m_id;
+
+    // 保存从 labs.txt 文件中读取到的所有机房信息
+    vector<ComputerLab> v_stu_labs;
 };
