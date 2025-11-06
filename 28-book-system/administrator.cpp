@@ -34,6 +34,7 @@ void Administrator::add_account()
     // _err_tips: 表示重复后的错误提示
     string _fname, _tip, _err_tips;
     ofstream ofs;
+
     int selected = 0;
     while (true)
     {
@@ -93,15 +94,14 @@ void Administrator::add_account()
     ofs << _id << " " << _name << " " << _pwd << endl;
     ofs.close();
     cout << "添加记录成功！" << endl;
+
+    // 重新加载一下文件中的数据到 vector 中
+    this->init_vector();
+
     cin.ignore();
     cout << "按 Enter 键继续..." << endl;
     cin.get();
     system("clear");
-}
-
-// 查看账号
-void Administrator::show_accounts()
-{
 }
 
 // 查看机房信息
@@ -187,4 +187,49 @@ bool Administrator::check_repeat(int _id, int _role)
         }
     }
     return false;
+}
+
+// 显示学生信息
+void print_student(Student &s)
+{
+    cout << "学号: " << s.m_id << ", 姓名: " << s.m_name
+         << ", 密码: " << s.m_passwd << endl;
+}
+
+// 显示教师信息
+void print_teacher(Teacher &t)
+{
+    cout << "职工号: " << t.m_tid << ", 姓名: " << t.m_name
+         << ", 密码: " << t.m_passwd << endl;
+}
+
+// 查看账号信息
+void Administrator::show_accounts()
+{
+    cout << "选择要查看的内容: " << endl;
+    cout << "1、查看所有学生: " << endl;
+    cout << "2、查看所有教师: " << endl;
+
+    int selected = 0;
+    cin >> selected;
+
+    if (selected == 1)
+    {
+        cout << "所有学生信息如下: " << endl;
+        for_each(v_stu.begin(), v_stu.end(), print_student);
+    }
+    else if (selected == 2)
+    {
+        cout << "所有教师信息如下: " << endl;
+        for_each(v_tea.begin(), v_tea.end(), print_teacher);
+    }
+    else
+    {
+        cout << "输入有误！" << endl;
+    }
+
+    cin.ignore(); // 因为前面有输入, 所以要添加这行代码
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
