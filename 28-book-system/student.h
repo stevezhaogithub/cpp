@@ -19,6 +19,9 @@ public:
     void book_room();
 
     // 查看我的预约
+    void show_my_reservation();
+
+    // 查看所有人的预约
     void show_reservations();
 
     // 取消预约
