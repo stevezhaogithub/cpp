@@ -11,6 +11,32 @@ Administrator::Administrator(string _name, string _pwd)
     this->m_passwd = _pwd;
     // 初始化 v_stu 和 v_tea, 用来检测是否重复
     this->init_vector();
+
+    // 初始化机房信息
+    this->init_labs();
+}
+// 初始化机房信息
+void Administrator::init_labs()
+{
+    // 获取机房信息（从文件中读取)
+    ifstream ifs;
+    ifs.open(ROOM_FILE, ios::in);
+    if (!ifs.is_open())
+    {
+        cout << "加载机房文件失败！" << endl;
+        ifs.close();
+    }
+    else
+    {
+        ComputerLab lab;
+        while (ifs >> lab.m_lab_id && ifs >> lab.m_max_computers)
+        {
+            this->v_labs.push_back(lab);
+        }
+
+        cout << "当前机房数量为: " << v_labs.size() << endl;
+        ifs.close();
+    }
 }
 
 // 显示管理员菜单
@@ -107,6 +133,17 @@ void Administrator::add_account()
 // 查看机房信息
 void Administrator::show_rooms()
 {
+    // 机房信息在 labs.txt 文件中
+    cout << "机房信息如下: " << endl;
+    for (vector<ComputerLab>::iterator it = v_labs.begin(); it != v_labs.end(); ++it)
+    {
+        cout << "机房编号: " << it->m_lab_id << ", 机房容量: " << it->m_max_computers << endl;
+    }
+
+    cin.ignore();
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
 
 // 清空预约
