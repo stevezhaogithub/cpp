@@ -98,9 +98,9 @@ void login(string _fname, int _role)
         break;
     }
 
-    cout << "请输入用户名: ";
+    cout << "--------请输入用户名: ";
     cin >> _name;
-    cout << "请输入密码: ";
+    cout << "--------请输入密码: ";
     cin >> _pwd;
     // 验证身份
     if (_role == 1)

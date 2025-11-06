@@ -149,6 +149,13 @@ void Administrator::show_rooms()
 // 清空预约
 void Administrator::clear_reservations()
 {
+    ofstream ofs(RESERVATION_FILE, ios::trunc);
+    ofs.close();
+    cout << "清空成功！" << endl;
+    cin.ignore();
+    cout << "请按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }
 /**
  * 添加账号的时候判断是否有重复
