@@ -5,6 +5,7 @@
 #include "computer_labs.h"
 #include "identity.h"
 #include "global_file.h"
+#include "reservation_file.h"
 using namespace std;
 
 class Student : public Identity

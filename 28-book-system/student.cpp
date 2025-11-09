@@ -132,6 +132,9 @@ void Student::show_reservations()
 // 查看我的预约
 void Student::show_my_reservation()
 {
+    // 会调用构造函数
+    ReservationFile rf;
+    // rf.update_reservation();
 }
 
 // 取消预约
