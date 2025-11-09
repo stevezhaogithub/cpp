@@ -144,8 +144,8 @@ void Student::show_reservations()
 
     mp_status_names.insert(make_pair("1", "审核中"));
     mp_status_names.insert(make_pair("2", "已预约"));
-    mp_status_names.insert(make_pair("-1", "预约失败"));
-    mp_status_names.insert(make_pair("0", "取消预约"));
+    mp_status_names.insert(make_pair("-1", "失败！"));
+    mp_status_names.insert(make_pair("0", "已取消"));
 
     // 显示预约记录
     for (int i = 0; i < rf.m_size; i++)
@@ -178,8 +178,8 @@ void Student::show_my_reservation()
 
     mp_status_names.insert(make_pair("1", "审核中"));
     mp_status_names.insert(make_pair("2", "已预约"));
-    mp_status_names.insert(make_pair("-1", "预约失败"));
-    mp_status_names.insert(make_pair("0", "取消预约"));
+    mp_status_names.insert(make_pair("-1", "失败！"));
+    mp_status_names.insert(make_pair("0", "已取消"));
 
     // 显示预约记录
     for (int i = 0; i < rf.m_size; i++)
@@ -203,4 +203,65 @@ void Student::show_my_reservation()
 // 取消预约
 void Student::cancel_reservation()
 {
+    ReservationFile rf;
+    // 判断是否有预约记录
+    if (rf.m_size == 0)
+    {
+        cout << "无预约记录可取消!" << endl;
+        return;
+    }
+
+    // 存放记录在文件中的原始索引编号
+    vector<int> v_index;
+    int index = 1;
+    map<string, string> mp_status_names;
+    mp_status_names.insert(make_pair("1", "审核中"));
+    mp_status_names.insert(make_pair("2", "已预约"));
+    mp_status_names.insert(make_pair("-1", "失败！"));
+    mp_status_names.insert(make_pair("0", "已取消"));
+    // 提示
+    cout << "【只有在审核中和预约成功的记录可以被取消, 以下是您的预约记录】" << endl;
+    for (int i = 0; i < rf.m_size; ++i)
+    {
+        // 先判断循环到的记录学号是否等于当前学生自己的学号
+        if (this->m_id == atoi(rf.m_reservation_data[i]["STU_ID"].c_str()))
+        {
+            // 再判断当前预约记录的状态
+            if (rf.m_reservation_data[i]["STATUS"] == "1" || rf.m_reservation_data[i]["STATUS"] == "2")
+            {
+                v_index.push_back(i);
+                cout << index++ << ". ";
+                cout << "预约日期: 周" << rf.m_reservation_data[i]["DAY"];
+                cout << "预约时间: " << (rf.m_reservation_data[i]["DAY_PART"] == "1" ? "上午" : "下午");
+                cout << "机房编号: " << rf.m_reservation_data[i]["LAB_ID"] << "    ";
+                cout << "预约状态: " << mp_status_names[rf.m_reservation_data[i]["STATUS"]] << endl;
+            }
+        }
+    }
+
+    cout << "请输入取消的记录, 0 代表返回:";
+    int selected = 0;
+    while (true)
+    {
+        cin >> selected;
+        if (selected > 0 && selected <= v_index.size())
+        {
+            // 取消预约
+            rf.m_reservation_data[v_index[selected - 1]]["STATUS"] = "0";
+            // 更新文件
+            rf.update_reservation();
+            cout << "取消预约成功！" << endl;
+            break;
+        }
+        else if (selected == 0)
+        {
+            // 表示要返回
+            break;
+        }
+        cout << "输入有误，请重新输入！" << endl;
+    }
+    cin.ignore();
+    cout << "按 Enter 键继续..." << endl;
+    cin.get();
+    system("clear");
 }

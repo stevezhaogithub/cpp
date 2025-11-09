@@ -111,6 +111,40 @@ void admin_menu(Identity *&_iden)
     }
 }
 
+// 进入教师身份的子菜单
+void teacher_menu(Identity *&_iden)
+{
+    while (true)
+    {
+        // 多态调用显示子菜单
+        _iden->show_menu();
+        // 强转为 Teacher 类型，调用相关成员
+        Teacher *_teacher = (Teacher *)_iden;
+
+        // 接收用户的选择
+        int selected = 0;
+        cin >> selected;
+        if (selected == 1)
+        {
+            // 查看所有预约
+            _teacher->show_all_reservations();
+        }
+        else if (selected == 2)
+        {
+            // 审核预约
+            _teacher->review_reservations();
+        }
+        else
+        {
+            // 注销登录
+            delete _teacher;
+            cout << "注销成功！" << endl;
+            system("clear");
+            return;
+        }
+    }
+}
+
 // 登录功能
 /**
  * _fname: 操作文件的名称
@@ -144,7 +178,7 @@ void login(string _fname, int _role)
         cin >> _id;
         break;
     case 2:
-        cout << "请输入职工号: " << endl;
+        cout << "请输入职工号: ";
         cin >> _id;
         break;
     }
@@ -200,8 +234,9 @@ void login(string _fname, int _role)
                 system("clear");
                 // 创建学教师对象
                 person = new Teacher(_id, _name, _pwd);
-                // 进入教师身份的子菜单
 
+                // 进入教师身份的子菜单
+                teacher_menu(person);
                 // return
                 return;
             }
