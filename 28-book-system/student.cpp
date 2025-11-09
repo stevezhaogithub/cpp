@@ -134,7 +134,40 @@ void Student::show_my_reservation()
 {
     // 会调用构造函数
     ReservationFile rf;
-    // rf.update_reservation();
+
+    if (rf.m_size == 0)
+    {
+        cout << "无预约记录!" << endl;
+        cin.ignore();
+        cout << "按 Enter 键继续..." << endl;
+        cin.get();
+        system("clear");
+        return;
+    }
+    map<string, string> mp_status_names;
+
+    mp_status_names.insert(make_pair("1", "审核中"));
+    mp_status_names.insert(make_pair("2", "已预约"));
+    mp_status_names.insert(make_pair("-1", "预约失败"));
+    mp_status_names.insert(make_pair("0", "取消预约"));
+
+    // 显示预约记录
+    for (int i = 0; i < rf.m_size; i++)
+    {
+        // C++ string 对象如何转为 int 类型
+        // 1. string.c_str() 将 string 对象转为 c 字符串
+        // 2. atoi(const chat *) 转为 int
+
+        // 判断文件中读取的预约记录的学号是否与当前登录的学生的学号一致
+        // 如果一致, 则显示该条预约记录
+        if (this->m_id == atoi(rf.m_reservation_data[i]["STU_ID"].c_str()))
+        {
+            cout << "预约日期: 周" << rf.m_reservation_data[i]["DAY"] << "    ";
+            cout << "预约时间: " << (rf.m_reservation_data[i]["DAY_PART"] == "1" ? "上午" : "下午") << "    ";
+            cout << "机房编号: " << rf.m_reservation_data[i]["LAB_ID"] << "    ";
+            cout << "预约状态: " << mp_status_names[rf.m_reservation_data[i]["STATUS"]] << endl;
+        }
+    }
 }
 
 // 取消预约

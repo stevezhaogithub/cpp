@@ -18,6 +18,7 @@ ReservationFile::ReservationFile()
 {
     // 读取 reservation.txt 文件
     // 周几, 上下午, 学生编号, 学生姓名, 机房编号, 机房状态
+    // status: 1预约审核中 2已预约 0取消预约 -1预约失败
     string day, day_part, stu_id, stu_name, lab_id, status;
     this->m_size = 0; // 初始化预约记录条数
 
@@ -58,16 +59,16 @@ ReservationFile::ReservationFile()
 
         ifs.close();
 
-        // 测试数据是否写进去了
-        for (map<int, map<string, string>>::iterator it = m_reservation_data.begin(); it != m_reservation_data.end(); ++it)
-        {
-            cout << "key = " << it->first << ", value: " << endl;
-            // 遍历输出 value 值
-            for (map<string, string>::iterator mit = it->second.begin(); mit != it->second.end(); ++mit)
-            {
-                cout << "\tk = " << mit->first << ",\tv = " << mit->second << endl;
-            }
-        }
+        // // 测试数据是否写进去了
+        // for (map<int, map<string, string>>::iterator it = m_reservation_data.begin(); it != m_reservation_data.end(); ++it)
+        // {
+        //     cout << "key = " << it->first << ", value: " << endl;
+        //     // 遍历输出 value 值
+        //     for (map<string, string>::iterator mit = it->second.begin(); mit != it->second.end(); ++mit)
+        //     {
+        //         cout << "\tk = " << mit->first << ",\tv = " << mit->second << endl;
+        //     }
+        // }
     }
     else
     {
