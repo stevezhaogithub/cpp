@@ -128,6 +128,36 @@ void Student::book_room()
 // 查看所有人的预约
 void Student::show_reservations()
 {
+    ReservationFile rf;
+    if (rf.m_size == 0)
+    {
+        cout << "无预约记录!" << endl;
+        cin.ignore();
+        cout << "按 Enter 键继续..." << endl;
+        cin.get();
+        system("clear");
+        return;
+    }
+
+    // 显示所有人的预约记录
+    map<string, string> mp_status_names;
+
+    mp_status_names.insert(make_pair("1", "审核中"));
+    mp_status_names.insert(make_pair("2", "已预约"));
+    mp_status_names.insert(make_pair("-1", "预约失败"));
+    mp_status_names.insert(make_pair("0", "取消预约"));
+
+    // 显示预约记录
+    for (int i = 0; i < rf.m_size; i++)
+    {
+        cout << (i + 1) << ". ";
+        cout << "学号: " << rf.m_reservation_data[i]["STU_ID"] << "    ";
+        cout << "预约日期: 周" << rf.m_reservation_data[i]["DAY"] << "    ";
+        cout << "预约时间: " << (rf.m_reservation_data[i]["DAY_PART"] == "1" ? "上午" : "下午") << "    ";
+        cout << "机房编号: " << rf.m_reservation_data[i]["LAB_ID"] << "    ";
+        cout << "预约状态: " << mp_status_names[rf.m_reservation_data[i]["STATUS"]] << "    ";
+        cout << "姓名: " << rf.m_reservation_data[i]["STU_NAME"] << endl;
+    }
 }
 // 查看我的预约
 void Student::show_my_reservation()
