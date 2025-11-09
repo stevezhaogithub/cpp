@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
+#include <string>
+#include <vector>
 #include "identity.h"
+#include "reservation_file.h"
 using namespace std;
 
 class Teacher : public Identity
