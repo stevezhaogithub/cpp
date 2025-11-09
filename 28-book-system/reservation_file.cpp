@@ -79,4 +79,24 @@ ReservationFile::ReservationFile()
 // 更新预约记录
 void ReservationFile::update_reservation()
 {
+    // 判断是否有预约记录
+    if (this->m_size == 0) // 内存中的集合中没有预约记录，无需写入文件
+        return;
+
+    // 如果有记录，则开始更新
+    // 1. 将原始数据文件清空
+    ofstream ofs(RESERVATION_FILE, ios::out | ios::trunc);
+    // 2. 将内存中的数据写入到文件中
+    for (map<int, map<string, string>>::iterator it = this->m_reservation_data.begin(); it != this->m_reservation_data.end(); ++it)
+    {
+        // DAY:1 PART:2 STU_ID:1 STU_NAME:steve LAB_ID:2 STATUS:1
+        ofs << "DAY:" << it->second["DAY"] << " ";
+        ofs << "PART:" << it->second["PART"] << " ";
+        ofs << "STU_ID:" << it->second["STU_ID"] << " ";
+        ofs << "STU_NAME:" << it->second["STU_NAME"] << " ";
+        ofs << "LAB_ID:" << it->second["LAB_ID"] << " ";
+        ofs << "STATUS:" << it->second["STATUS"] << endl;
+    }
+    // 关闭文件流
+    ofs.close();
 }
