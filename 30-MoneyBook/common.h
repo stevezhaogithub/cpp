@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include "account_item.h"
 
 // 定义全局生效的常量
 #define INCOME "收入"
@@ -23,7 +24,7 @@ void load_data(vector<AccountItem> & _item);
 void show_main_menu();
 
 // 读取键盘输入, 并校验合法性
-void read_menu_selection(int _range);
+char read_menu_selection(int _range);
 
 // 显示 "记账" 菜单
 void show_accounting_menu();
