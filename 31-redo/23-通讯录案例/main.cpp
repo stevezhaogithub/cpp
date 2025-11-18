@@ -44,6 +44,10 @@ int is_exists(const struct AddressBook *_adb, std::string name);
 // 删除联系人
 void delete_contact(struct AddressBook *_adb);
 
+// 查找指定的联系人
+void find_contact(struct AddressBook *_adb);
+
+// 程序主函数
 int main()
 {
     // 创建通讯录结构体, 并初始化 m_size
@@ -74,6 +78,8 @@ int main()
             delete_contact(&adb);
             break;
         case 4:
+            // 查找联系人
+            find_contact(&adb);
             break;
         case 5:
             break;
@@ -221,4 +227,43 @@ int is_exists(const struct AddressBook *_adb, std::string name)
         }
     }
     return -1;
+}
+
+// 查找指定的联系人
+void find_contact(struct AddressBook *_adb)
+{
+    // 1. 判断通讯录是否为空
+    if (_adb->m_size <= 0)
+    {
+        std::cout << "通讯录为空!" << std::endl;
+        std::cin.ignore();
+        std::cout << "按 Enter 键继续..." << std::endl;
+        std::cin.get();
+        system("clear");
+    }
+    else
+    {
+        std::string name;
+        std::cout << "请输入要查找的联系人姓名: ";
+        std::cin >> name;
+        // 在通讯录数组中查找对应的联系人信息
+        int ret = is_exists(_adb, name);
+        if (ret == -1)
+        {
+            std::cout << "查无此人!" << std::endl;
+            std::cin.ignore();
+            std::cout << "按 Enter 键继续..." << std::endl;
+            std::cin.get();
+            system("clear");
+        }
+        else
+        {
+            // 显示查找到的联系人信息
+            std::cout << _adb->contacts[ret].m_name << " | " << _adb->contacts[ret].m_gender << " | " << _adb->contacts[ret].m_age << " | " << _adb->contacts[ret].m_phone << " | " << _adb->contacts[ret].m_address << std::endl;
+            std::cin.ignore();
+            std::cout << "按 Enter 键继续..." << std::endl;
+            std::cin.get();
+            system("clear");
+        }
+    }
 }
