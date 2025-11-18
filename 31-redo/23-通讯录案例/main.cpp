@@ -353,10 +353,25 @@ void edit_contact(struct AddressBook *_adb)
 // 清空联系人
 void clear_contacts(struct AddressBook *_adb)
 {
-    _adb->m_size = 0;
-    std::cout << "通讯录已清空!" << std::endl;
-    std::cin.ignore();
-    std::cout << "按 Enter 键继续..." << std::endl;
-    std::cin.get();
-    system("clear");
+    while (true)
+    {
+        std::cout << "确定要清空全部联系人吗？(y/n) ";
+        char selected;
+        std::cin >> selected;
+        if (selected == 'y' || selected == 'Y')
+        {
+            _adb->m_size = 0;
+            std::cout << "通讯录已清空!" << std::endl;
+            std::cin.ignore();
+            std::cout << "按 Enter 键继续..." << std::endl;
+            std::cin.get();
+            system("clear");
+            break;
+        }
+        else
+        {
+            system("clear");
+            return;
+        }
+    }
 }
