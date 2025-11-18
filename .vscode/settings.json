@@ -44,6 +44,24 @@
         "list": "cpp",
         "set": "cpp",
         "__tree": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "__node_handle": "cpp",
+        "__verbose_abort": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "cstdarg": "cpp",
+        "cstdint": "cpp",
+        "cwctype": "cpp",
+        "execution": "cpp",
+        "iomanip": "cpp",
+        "iosfwd": "cpp",
+        "limits": "cpp",
+        "queue": "cpp",
+        "ratio": "cpp",
+        "sstream": "cpp",
+        "stack": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp"
     }
 }
