@@ -47,6 +47,12 @@ void delete_contact(struct AddressBook *_adb);
 // 查找指定的联系人
 void find_contact(struct AddressBook *_adb);
 
+// 修改(编辑)联系人
+void edit_contact(struct AddressBook *_adb);
+
+// 清空联系人
+void clear_contacts(struct AddressBook *_adb);
+
 // 程序主函数
 int main()
 {
@@ -82,8 +88,12 @@ int main()
             find_contact(&adb);
             break;
         case 5:
+            // 修改(编辑)联系人
+            edit_contact(&adb);
             break;
         case 6:
+            // 清空联系人
+            clear_contacts(&adb);
             break;
         case 0:
             while (true)
@@ -266,4 +276,87 @@ void find_contact(struct AddressBook *_adb)
             system("clear");
         }
     }
+}
+
+// 修改(编辑)联系人
+void edit_contact(struct AddressBook *_adb)
+{
+
+    // 1. 判断通讯录是否为空
+    if (_adb->m_size <= 0)
+    {
+        std::cout << "通讯录为空!" << std::endl;
+        std::cin.ignore();
+        std::cout << "按 Enter 键继续..." << std::endl;
+        std::cin.get();
+        system("clear");
+    }
+    else
+    {
+        std::string name;
+        std::cout << "请输入要修改的联系人姓名: ";
+        std::cin >> name;
+        // 在通讯录数组中查找对应的联系人信息
+        int ret = is_exists(_adb, name);
+        if (ret == -1)
+        {
+            std::cout << "查无此人!" << std::endl;
+            std::cin.ignore();
+            std::cout << "按 Enter 键继续..." << std::endl;
+            std::cin.get();
+            system("clear");
+        }
+        else
+        {
+            // 显示查找到的联系人信息
+            std::cout << _adb->contacts[ret].m_name << " | " << _adb->contacts[ret].m_gender << " | " << _adb->contacts[ret].m_age << " | " << _adb->contacts[ret].m_phone << " | " << _adb->contacts[ret].m_address << std::endl;
+
+            std::cout << "请输入修改信息" << std::endl;
+            // ------------------------------------------------
+            struct Contact model;
+            std::cout << "请输入姓名: ";
+            std::cin >> model.m_name;
+            while (true)
+            {
+                std::cout << "请输入性别（1男, 2女）: ";
+                std::cin >> model.m_gender;
+                if (model.m_gender == 1 || model.m_gender == 2)
+                {
+                    break;
+                }
+                else
+                {
+                    model.m_gender = 0;
+                    std::cout << "输入不合法, 性别只能输入 1 或 2, 请重新输入!" << std::endl;
+                }
+            }
+            std::cout << "请输入年龄: ";
+            std::cin >> model.m_age;
+            std::cout << "请输入电话: ";
+            std::cin >> model.m_phone;
+            std::cout << "请输入通讯地址: ";
+            std::cin >> model.m_address;
+
+            // 添加到通讯录数组中
+            _adb->contacts[ret] = model;
+
+            // ------------------------------------------------
+
+            std::cin.ignore();
+            std::cout << "按 Enter 键继续..." << std::endl;
+            std::cin.get();
+            system("clear");
+        }
+    }
+}
+
+// 清空联系人
+void clear_contacts(struct AddressBook *_adb)
+{
+    _adb->m_size = 0;
+    std::cout << "通讯录已清空!" << std::endl;
+    std::cin.ignore();
+    std::cout << "按 Enter 键继续..." << std::endl;
+    std::cin.get();
+    system("clear");
 }
