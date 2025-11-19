@@ -31,6 +31,16 @@
  * 2. 函数的调用可以作为左值
  *
  *
+ * 五、引用的本质就是一个 受限制的 const 指针
+ *
+ *
+ * 六、常量引用
+ * 1. 参数作为引用传递的时候，前面加 const 关键字
+ * 2. 防止通过形参修改实参
+ * void test06(const int &arg)
+ * {
+ *      arg 无法更改。
+ * }
  *
  *
  */
@@ -116,6 +126,23 @@ int &test05()
     return a;
 }
 
+void test06(const int &arg)
+{
+
+    int a = 100;
+    // 报错: error: non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+    // int &b = 10; // 10 是字面量，不是变量，无法起别名。
+
+    // 不报错，可正常执行，编译器做了如下处理：
+    // 编译器实际上会生成类似这样的代码：
+    // int temp = 100;           // 创建一个临时int对象
+    // const int &b = temp;      // 将引用b绑定到这个临时对象
+    const int &b = 100;
+
+    // 报错： error: cannot assign to variable 'arg' with const-qualified type 'const int &'
+    // arg = 10000;
+}
+
 int main()
 {
     // test01();
@@ -130,14 +157,17 @@ int main()
     // std::cout << ret << std::endl; // 输出结果不正常了
 
     // --------------------------------------------------
-    int &ret = test05();
-    std::cout << ret << std::endl;
-    std::cout << ret << std::endl;
+    // int &ret = test05();
+    // std::cout << ret << std::endl;
+    // std::cout << ret << std::endl;
 
-    // 函数调用作为左值
-    test05() = 1000;
-    std::cout << ret << std::endl;
-    std::cout << ret << std::endl;
+    // // 函数调用作为左值
+    // test05() = 1000;
+    // std::cout << ret << std::endl;
+    // std::cout << ret << std::endl;
+    int a = 10;
+    test06(a);
+    std::cout << a << std::endl;
 
     return 0;
 }
