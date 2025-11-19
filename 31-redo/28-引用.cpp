@@ -25,6 +25,10 @@
  * 2. 地址传递
  * 3. 引用传递
  *
+ * 四、引用做函数的返回值
+ * 1. 不要返回局部变量的引用
+ *
+ * 2. 函数的调用可以作为左值
  *
  *
  *
@@ -96,11 +100,44 @@ void test03()
     std::cout << a << ", " << b << std::endl;
 }
 
+// 返回了局部变量的引用
+int &test04()
+{
+    int a = 10;
+    //  warning: reference to stack memory associated with local variable 'a' returned [-Wreturn-stack-address]
+    return a;
+}
+
+// 函数调用作为左值
+// 返回值类型是 int &, 表示返回的是一个真实变量的 "别名"。这个真实的变量就是 a
+int &test05()
+{
+    static int a = 10;
+    return a;
+}
+
 int main()
 {
     // test01();
     // test02();
-    test03();
+    // test03();
+
+    // ---------------------------------------------------
+
+    // // 返回局部变量的引用
+    // int &ret = test04();
+    // std::cout << ret << std::endl;
+    // std::cout << ret << std::endl; // 输出结果不正常了
+
+    // --------------------------------------------------
+    int &ret = test05();
+    std::cout << ret << std::endl;
+    std::cout << ret << std::endl;
+
+    // 函数调用作为左值
+    test05() = 1000;
+    std::cout << ret << std::endl;
+    std::cout << ret << std::endl;
 
     return 0;
 }
